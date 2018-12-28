@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
+
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<?xml-stylesheet type="text/xsl" href="interfaxim.xsl" ?>
 
 <!DOCTYPE texte [
 <!ENTITY pre "<choice><abbr>p&#772;</abbr><expan>pre</expan></choice>" >
@@ -15,7 +17,7 @@
 <!ENTITY os "<choice><abbr>&#42863;</abbr><expan>os</expan></choice>" >
 <!ENTITY an "<choice><abbr>&#257;</abbr><expan>an</expan></choice>" >
 <!ENTITY en "<choice><abbr>&#275;</abbr><expan>en</expan></choice>" >
-<!ENTITY in "<choice><abbr>&#298;</abbr><expan>in</expan></choice>" >
+<!ENTITY in "<choice><abbr>&#299;</abbr><expan>in</expan></choice>" >
 <!ENTITY on "<choice><abbr>&#333;</abbr><expan>on</expan></choice>" >
 <!ENTITY um "<choice><abbr>&#363;</abbr><expan>um</expan></choice>" >
 <!ENTITY men "<choice><abbr>&#7745;</abbr><expan>men</expan></choice>" >
@@ -89,7 +91,8 @@
          </titleStmt>
          <editionStmt>
             <edition>Évaluation XML TEI - École nationale des chartes <date when="2019-01">Janvier
-                  2019</date></edition>
+                  2019</date>
+            </edition>
             <respStmt>
                <resp>Transcription et encodage du manuscrit.</resp>
                <persName xml:id="SA">Ségolène Albouy</persName>
@@ -232,7 +235,7 @@
    </teiHeader>
    <facsimile>
       <surface>
-         <graphic url="EVALUATION/Syxte1.jpeg" width="1024px" height="1539px"/>
+         <graphic url="Syxte1.jpeg" width="1024px" height="1539px"/>
          <zone xml:id="l1" ulx="287" uly="1110" lrx="358" lry="1131"/>
          <zone xml:id="l2" ulx="66" uly="1129" lrx="354" lry="1151"/>
          <zone xml:id="l3" ulx="68" uly="1153" lrx="354" lry="1171"/>
@@ -284,7 +287,7 @@
          <zone xml:id="l49" ulx="427" uly="1159" lrx="723" lry="1170"/>
       </surface>
       <surface>
-         <graphic url="EVALUATION/Syxte2.jpeg" width="1024px" height="1542px"/>
+         <graphic url="Syxte2.jpeg" width="1024px" height="1542px"/>
          <zone xml:id="l50" ulx="322" uly="153" lrx="611" lry="171"/>
          <zone xml:id="l51" ulx="323" uly="178" lrx="622" lry="197"/>
          <zone xml:id="l52" ulx="323" uly="204" lrx="620" lry="221"/>
@@ -379,8 +382,7 @@
          <zone xml:id="l141" ulx="684" uly="1151" lrx="979" lry="1171"/>
       </surface>
       <surface>
-         <graphic url="EVALUATION/Syxte3.jpeg" width="1024px" height="1543px" />
-         <zone xml:id="l198" points = " 392,364 492,441 486,391 707,393 707,371 " />
+         <graphic url='Syxte3.jpeg' width='1024px' height='1543px' />
          <zone xml:id="l142" ulx="45" uly="174" lrx="339" lry="192" />
          <zone xml:id="l143" ulx="50" uly="200" lrx="336" lry="215" />
          <zone xml:id="l144" ulx="51" uly="221" lrx="346" lry="239" />
@@ -437,6 +439,7 @@
          <zone xml:id="l195" ulx="411" uly="321" lrx="728" lry="348" />
          <zone xml:id="l196" ulx="408" uly="342" lrx="675" lry="369" />
          <zone xml:id="l197" ulx="476" uly="390" lrx="705" lry="410" />
+         <zone xml:id="l198" ulx="400" uly="365" lrx="709" lry="391" />
          <zone xml:id="l199" ulx="477" uly="412" lrx="724" lry="437" />
          <zone xml:id="l200" ulx="411" uly="433" lrx="707" lry="458" />
          <zone xml:id="l201" ulx="408" uly="458" lrx="700" lry="482" />
@@ -474,7 +477,7 @@
          <zone xml:id="l233" ulx="415" uly="1160" lrx="721" lry="1185" />
       </surface>
       <surface>
-         <graphic url="EVALUATION/Syxte4.jpeg" width="1024px" height="1542px" />
+         <graphic url='Syxte4.jpeg' width='1024px' height='1542px' />
          <zone xml:id="l234" ulx="312" uly="111" lrx="612" lry="184" />
          <zone xml:id="l235" ulx="317" uly="184" lrx="610" lry="202" />
          <zone xml:id="l236" ulx="316" uly="203" lrx="424" lry="226" />
@@ -503,7 +506,8 @@
       <body>
 
 
-         <p>
+         <div type="section">
+            <p>
             <milestone unit="section"/>
             <seg facs="#l1">Ci comen-</seg>
             <lb/>
@@ -1119,7 +1123,7 @@
             <lb/>
             <seg facs="#l255">stre sires &Ji;esu&espace;&Cc;riz nos octroit &par;&vu;enir&point0;
                Am&en;.</seg>
-         </p>
+         </p></div>
       </body>
    </text>
 </TEI>
