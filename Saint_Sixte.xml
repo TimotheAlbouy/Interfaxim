@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!DOCTYPE texte [
+<!ENTITY pre "<choice><abbr>p&#772;</abbr><expan>pre</expan></choice>" >
+<!ENTITY pré "<choice><abbr>p&#772;</abbr><expan>pré</expan></choice>" >
+<!ENTITY par "<choice><abbr>&#42833;</abbr><expan>par</expan></choice>" >
+<!ENTITY per "<choice><abbr>&#42833;</abbr><expan>per</expan></choice>" >
+<!ENTITY et "<choice><abbr>&#8266;</abbr><expan>et</expan></choice>" >
+<!ENTITY Et "<choice><abbr>&#8266;</abbr><expan>Et</expan></choice>" >
+<!ENTITY com "<choice><abbr>&#42863;</abbr><expan>com</expan></choice>" >
+<!ENTITY con "<choice><abbr>&#42863;</abbr><expan>con</expan></choice>" >
+<!ENTITY os "<choice><abbr>&#42863;</abbr><expan>os</expan></choice>" >
+<!ENTITY an "<choice><abbr>&#257;</abbr><expan>an</expan></choice>" >
+<!ENTITY en "<choice><abbr>&#275;</abbr><expan>en</expan></choice>" >
+<!ENTITY in "<choice><abbr>&#298;</abbr><expan>in</expan></choice>" >
+<!ENTITY on "<choice><abbr>&#333;</abbr><expan>on</expan></choice>" >
+<!ENTITY um "<choice><abbr>&#363;</abbr><expan>um</expan></choice>" >
+<!ENTITY men "<choice><abbr>&#7745;</abbr><expan>men</expan></choice>" >
+
+<!ENTITY virgule "<choice><orig>.</orig><reg>,</reg></choice>" >
+<!ENTITY virgule0 "<choice><sic></sic><reg>,</reg></choice>" >
+<!ENTITY guillemet '<choice><orig>.</orig><reg>"</reg></choice>' >
+<!ENTITY guillemet-ouvrant '<choice><orig>.</orig><reg>: "</reg></choice>' >
+<!ENTITY guillemet-ouvrant0 '<choice><sic></sic><reg>: "</reg></choice>' >
+<!ENTITY guillemet-fermant '<choice><orig>.</orig><reg>."</reg></choice>' >
+<!ENTITY guillemet-fermant0 '<choice><sic></sic><reg>."</reg></choice>' >
+<!ENTITY guillemet-fermant2 '<choice><orig>&#11854;</orig><reg>."</reg></choice>' >
+<!ENTITY point "<choice><orig>;</orig><reg>.</reg></choice>" >
+<!ENTITY point0 "<choice><sic></sic><reg>.</reg></choice>" >
+<!ENTITY deux-points "<choice><orig>&#183;</orig><reg>:</reg></choice>" >
+<!ENTITY point-interrogation "<choice><sic></sic><reg>?</reg></choice>" >
+<!ENTITY point-interrogation1 "<choice><orig>.</orig><reg>?</reg></choice>" >
+<!ENTITY punctus-elevatus "<choice><orig>&#11854;</orig><reg>;</reg></choice>" > <!--code décimal trouvé ici : https://www.fileformat.info/info/unicode/char/2e4e/index.htm -->
+<!ENTITY punctus-interrogatus "<choice><orig>&#11854;</orig><reg>?</reg></choice>" >
+
+<!ENTITY espace "<choice><orig></orig><reg> </reg></choice>" >
+<!ENTITY apost "<choice><orig></orig><reg>'</reg></choice>" >
+
+<!ENTITY y "<choice><orig>&#7823;</orig><reg>y</reg></choice>" >
+<!ENTITY é "<choice><orig>e</orig><reg>é</reg></choice>" >
+<!ENTITY à "<choice><orig>a</orig><reg>à</reg></choice>" >
+<!ENTITY ù "<choice><orig>u</orig><reg>ù</reg></choice>" >
+<!ENTITY ï "<choice><orig>i</orig><reg>ï</reg></choice>" >
+
+<!ENTITY ji "<choice><orig>i</orig><reg>j</reg></choice>" >
+<!ENTITY Ji "<choice><orig>i</orig><reg>J</reg></choice>" >
+<!ENTITY JI "<choice><orig>I</orig><reg>j</reg></choice>" >
+
+<!ENTITY vu "<choice><orig>u</orig><reg>v</reg></choice>" >
+<!ENTITY Vu "<choice><orig>u</orig><reg>V</reg></choice>" >
+<!ENTITY VU "<choice><orig>U</orig><reg>V</reg></choice>" >
+
+<!ENTITY Aa "<choice><orig>a</orig><reg>A</reg></choice>" >
+<!ENTITY Bb "<choice><orig>b</orig><reg>B</reg></choice>" >
+<!ENTITY Cc "<choice><orig>c</orig><reg>C</reg></choice>" >
+<!ENTITY Dd "<choice><orig>d</orig><reg>D</reg></choice>" >
+<!ENTITY Ee "<choice><orig>e</orig><reg>E</reg></choice>" >
+<!ENTITY Ff "<choice><orig>f</orig><reg>F</reg></choice>" >
+<!ENTITY Gg "<choice><orig>g</orig><reg>G</reg></choice>" >
+<!ENTITY Hh "<choice><orig>h</orig><reg>H</reg></choice>" >
+<!ENTITY Ii "<choice><orig>i</orig><reg>I</reg></choice>" >
+<!ENTITY Kk "<choice><orig>k</orig><reg>K</reg></choice>" >
+<!ENTITY Ll "<choice><orig>l</orig><reg>L</reg></choice>" >
+<!ENTITY Mm "<choice><orig>m</orig><reg>M</reg></choice>" >
+<!ENTITY Nn "<choice><orig>n</orig><reg>N</reg></choice>" >
+<!ENTITY Oo "<choice><orig>o</orig><reg>O</reg></choice>" >
+<!ENTITY Pp "<choice><orig>p</orig><reg>P</reg></choice>" >
+<!ENTITY Qq "<choice><orig>q</orig><reg>Q</reg></choice>" >
+<!ENTITY Rr "<choice><orig>r</orig><reg>R</reg></choice>" >
+<!ENTITY Ss "<choice><orig>s</orig><reg>S</reg></choice>" >
+<!ENTITY Tt "<choice><orig>t</orig><reg>T</reg></choice>" >
+<!ENTITY Uu "<choice><orig>u</orig><reg>U</reg></choice>" >
+<!ENTITY Xx "<choice><orig>x</orig><reg>X</reg></choice>" >
+<!ENTITY Yy "<choice><orig>y</orig><reg>Y</reg></choice>" >
+<!ENTITY Zz "<choice><orig>z</orig><reg>Z</reg></choice>" >
+
+<!ENTITY sens-incertain '<certainty locus="value" resp="#SA" degree="0.5"><desc>La transcription du/des terme(s) précédent(s) est incertaine en absence de sens clair du/des mot transcrit.</desc></certainty>' >
+<!ENTITY nom-incertain '<certainty locus="value" resp="#SA" degree="0.5"><desc>La transcription du nom propre précédent est incertaine</desc></certainty>' >
+]>
+
+<TEI> <!-- xmlns="http://www.tei-c.org/ns/1.0" -->
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Vie de saint Sixte</title>
+         </titleStmt>
+         <editionStmt>
+            <edition>Évaluation XML TEI - École nationale des chartes <date when="2019-01">Janvier
+                  2019</date></edition>
+            <respStmt>
+               <resp>Transcription et encodage du manuscrit.</resp>
+               <persName xml:id="SA">Ségolène Albouy</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <p><!--Publication Information--></p>
+         </publicationStmt>
+
+         <sourceDesc>
+            <msDesc xml:id="A">
+               <msIdentifier>
+                  <country>France</country>
+                  <settlement><!--Paris ??--></settlement>
+                  <repository>Bibliothèque nationale de France - Département des
+                     manuscrits</repository>
+                  <idno>Français 412</idno>
+                  <altIdentifier>
+                     <idno>Lancelot 135 (Ancienne cote)</idno>
+                  </altIdentifier>
+                  <altIdentifier>
+                     <idno>Regius 7019(3) (Ancienne cote)</idno>
+                  </altIdentifier>
+                  <altIdentifier>
+                     <idno>ark:/12148/btv1b84259980</idno>
+                  </altIdentifier>
+               </msIdentifier>
+
+
+               <head>
+                  <title>Recueil de textes, Vie de saints</title>
+                  <origDate when="1285">1285</origDate>
+                  <note><!-- infos complémentaires --></note>
+               </head>
+
+               <!-- structure du manuscrit : https://gallica.bnf.fr/ark:/12148/bpt6k140644w/f33.image-->
+               <!-- http://jonas.irht.cnrs.fr/consulter/manuscrit/detail_manuscrit.php?projet=45533 -->
+               <msContents>
+                  <msItem>
+                     <locus>Folio 87ra – 88va</locus>
+                     <author>Anonyme</author>
+                     <title>Vie de saint Sixte</title>
+                     <incipit>Ci comence la vie et passion seint Sixte</incipit>
+                     <explicit>nostre sires Jesu Criz nos octroit parvenir. Amen.</explicit>
+                     <textLang mainLang="fre"
+                        ><!-- langue principale du texte concerné --></textLang>
+                  </msItem>
+                  <msItemStruct>
+                     <!-- pour plus de balises spécialisées -->
+                     <locus from="87ra" to="88va">Folio 87ra – 88va</locus>
+                     <author><!-- auteur --></author>
+                     <title><!-- titre de la section --></title>
+                     <incipit><!-- premiers mots de la section --></incipit>
+                     <explicit><!-- derniers mots de la section --></explicit>
+                  </msItemStruct>
+                  <!-- A répéter autant de fois que nécessaire -->
+               </msContents>
+
+               <!-- Description matérielle du manuscrit : https://gallica.bnf.fr/ark:/12148/bpt6k140644w/f2.image -->
+               <physDesc>
+                  <objectDesc>
+                     <supportDesc>
+                        <support>Parchemin</support>
+                        <extent>
+                           <width unit="mm"/>
+                           <!-- taille -->
+                           <height unit="mm"/>
+                        </extent>
+                        <foliation><!-- type de cahier, nombre de folios--></foliation>
+                     </supportDesc>
+                     <layoutDesc>
+                        <!-- disposition du texte sur le folio -->
+                        <layout columns="2" writtenLines="46"/>
+                        <!-- nombre de colonne et de ligne -->
+                     </layoutDesc>
+                  </objectDesc>
+
+                  <handDesc hands="1">
+                     <!-- @hands = nombre de mains -->
+                     <!-- Déclaration des mains -->
+                     <handNote xml:id="unknown">
+                        <p>
+                           <locus from="87ra" to="88va"/>
+                           <!-- déclaration de l'endroit où est intervenu la main -->
+                           <!-- passage concerné -->
+                           <!-- Description des traits distinctifs de la main concernée -->
+                        </p>
+                     </handNote>
+                  </handDesc>
+                  <scriptDesc>
+                     <scriptNote><!-- caractérisation de l'écriture --></scriptNote>
+                  </scriptDesc>
+                  <decoDesc>
+                     <!-- description de la décoration -->
+                     <decoNote>
+                        <stamp>
+                           <!--  description d'un cachet --></stamp>
+                     </decoNote>
+                  </decoDesc>
+                  <bindingDesc>
+                     <binding>
+                        <condition/>
+                        <decoNote/>
+                     </binding>
+                     <!-- description de la reliure -->
+                  </bindingDesc>
+                  <sealDesc>
+                     <seal>
+                        <p/>
+                     </seal>
+                     <condition/>
+                     <!-- description du ou des sceaux -->
+                  </sealDesc>
+               </physDesc>
+
+               <!-- Histoire et transmission du manuscrit WITNESS : http://jonas.irht.cnrs.fr/consulter/oeuvre/detail_oeuvre.php?oeuvre=2032-->
+               <history>
+                  <origin><!-- lieu de production du manuscrit --></origin>
+                  <provenance>
+                     <p><!-- histoire de la transmission du manuscrit --></p>
+                     <!-- indications bibliographique -->
+                     <!-- BIBLIO https://archivesetmanuscrits.bnf.fr/ark:/12148/cc50522d -->
+                     <listBibl>
+                        <bibl>
+                           <author/>
+                           <title/>
+                           <pubPlace/>
+                           <publisher/>
+                           <date/>
+                        </bibl>
+                     </listBibl>
+                  </provenance>
+               </history>
+            </msDesc>
+
+         </sourceDesc>
+      </fileDesc>
+
+
+   </teiHeader>
+   <facsimile>
+      <surface>
+         <graphic url="EVALUATION/Syxte1.jpeg" width="1024px" height="1539px"/>
+         <zone xml:id="l1" ulx="287" uly="1110" lrx="358" lry="1131"/>
+         <zone xml:id="l2" ulx="66" uly="1129" lrx="354" lry="1151"/>
+         <zone xml:id="l3" ulx="68" uly="1153" lrx="354" lry="1171"/>
+         <zone xml:id="l4" ulx="368" uly="140" lrx="699" lry="170"/>
+         <zone xml:id="l5" ulx="619" uly="177" lrx="707" lry="193"/>
+         <zone xml:id="l6" ulx="621" uly="196" lrx="706" lry="216"/>
+         <zone xml:id="l7" ulx="622" uly="219" lrx="713" lry="235"/>
+         <zone xml:id="l8" ulx="621" uly="240" lrx="716" lry="261"/>
+         <zone xml:id="l9" ulx="622" uly="264" lrx="705" lry="281"/>
+         <zone xml:id="l10" ulx="624" uly="287" lrx="694" lry="300"/>
+         <zone xml:id="l11" ulx="623" uly="306" lrx="703" lry="323"/>
+         <zone xml:id="l12" ulx="624" uly="328" lrx="705" lry="347"/>
+         <zone xml:id="l13" ulx="626" uly="353" lrx="707" lry="372"/>
+         <zone xml:id="l14" ulx="413" uly="379" lrx="700" lry="391"/>
+         <zone xml:id="l15" ulx="417" uly="400" lrx="709" lry="414"/>
+         <zone xml:id="l16" ulx="415" uly="422" lrx="711" lry="435"/>
+         <zone xml:id="l17" ulx="415" uly="449" lrx="708" lry="457"/>
+         <zone xml:id="l18" ulx="415" uly="469" lrx="705" lry="479"/>
+         <zone xml:id="l19" ulx="417" uly="491" lrx="714" lry="505"/>
+         <zone xml:id="l20" ulx="415" uly="511" lrx="710" lry="529"/>
+         <zone xml:id="l21" ulx="417" uly="537" lrx="713" lry="550"/>
+         <zone xml:id="l22" ulx="413" uly="561" lrx="711" lry="573"/>
+         <zone xml:id="l23" ulx="416" uly="582" lrx="709" lry="595"/>
+         <zone xml:id="l24" ulx="421" uly="605" lrx="708" lry="616"/>
+         <zone xml:id="l25" ulx="419" uly="626" lrx="717" lry="638"/>
+         <zone xml:id="l26" ulx="418" uly="647" lrx="713" lry="660"/>
+         <zone xml:id="l27" ulx="420" uly="667" lrx="717" lry="682"/>
+         <zone xml:id="l28" ulx="420" uly="691" lrx="732" lry="707"/>
+         <zone xml:id="l29" ulx="421" uly="715" lrx="706" lry="725"/>
+         <zone xml:id="l30" ulx="422" uly="731" lrx="709" lry="746"/>
+         <zone xml:id="l31" ulx="422" uly="755" lrx="711" lry="766"/>
+         <zone xml:id="l32" ulx="425" uly="778" lrx="725" lry="790"/>
+         <zone xml:id="l33" ulx="423" uly="799" lrx="718" lry="811"/>
+         <zone xml:id="l34" ulx="423" uly="825" lrx="712" lry="834"/>
+         <zone xml:id="l35" ulx="426" uly="846" lrx="722" lry="856"/>
+         <zone xml:id="l36" ulx="425" uly="867" lrx="713" lry="879"/>
+         <zone xml:id="l37" ulx="421" uly="888" lrx="717" lry="899"/>
+         <zone xml:id="l38" ulx="422" uly="908" lrx="723" lry="918"/>
+         <zone xml:id="l39" ulx="425" uly="931" lrx="728" lry="942"/>
+         <zone xml:id="l40" ulx="424" uly="956" lrx="719" lry="966"/>
+         <zone xml:id="l41" ulx="426" uly="975" lrx="720" lry="987"/>
+         <zone xml:id="l42" ulx="426" uly="999" lrx="721" lry="1013"/>
+         <zone xml:id="l43" ulx="424" uly="1021" lrx="730" lry="1037"/>
+         <zone xml:id="l44" ulx="425" uly="1046" lrx="727" lry="1057"/>
+         <zone xml:id="l45" ulx="425" uly="1072" lrx="723" lry="1082"/>
+         <zone xml:id="l46" ulx="425" uly="1088" lrx="723" lry="1101"/>
+         <zone xml:id="l47" ulx="429" uly="1111" lrx="726" lry="1124"/>
+         <zone xml:id="l48" ulx="428" uly="1134" lrx="726" lry="1146"/>
+         <zone xml:id="l49" ulx="427" uly="1159" lrx="723" lry="1170"/>
+      </surface>
+      <surface>
+         <graphic url="EVALUATION/Syxte2.jpeg" width="1024px" height="1542px"/>
+         <zone xml:id="l50" ulx="322" uly="153" lrx="611" lry="171"/>
+         <zone xml:id="l51" ulx="323" uly="178" lrx="622" lry="197"/>
+         <zone xml:id="l52" ulx="323" uly="204" lrx="620" lry="221"/>
+         <zone xml:id="l53" ulx="320" uly="226" lrx="618" lry="240"/>
+         <zone xml:id="l54" ulx="323" uly="244" lrx="608" lry="260"/>
+         <zone xml:id="l55" ulx="326" uly="264" lrx="606" lry="282"/>
+         <zone xml:id="l56" ulx="325" uly="287" lrx="606" lry="302"/>
+         <zone xml:id="l57" ulx="326" uly="305" lrx="621" lry="325"/>
+         <zone xml:id="l58" ulx="325" uly="328" lrx="612" lry="347"/>
+         <zone xml:id="l59" ulx="324" uly="350" lrx="608" lry="367"/>
+         <zone xml:id="l60" ulx="324" uly="372" lrx="608" lry="387"/>
+         <zone xml:id="l61" ulx="325" uly="394" lrx="618" lry="409"/>
+         <zone xml:id="l62" ulx="325" uly="415" lrx="610" lry="434"/>
+         <zone xml:id="l63" ulx="324" uly="439" lrx="616" lry="457"/>
+         <zone xml:id="l64" ulx="322" uly="463" lrx="622" lry="481"/>
+         <zone xml:id="l65" ulx="322" uly="485" lrx="617" lry="502"/>
+         <zone xml:id="l66" ulx="322" uly="507" lrx="614" lry="525"/>
+         <zone xml:id="l67" ulx="322" uly="529" lrx="619" lry="551"/>
+         <zone xml:id="l68" ulx="322" uly="555" lrx="618" lry="572"/>
+         <zone xml:id="l69" ulx="321" uly="577" lrx="611" lry="594"/>
+         <zone xml:id="l70" ulx="323" uly="597" lrx="606" lry="615"/>
+         <zone xml:id="l71" ulx="321" uly="619" lrx="438" lry="636"/>
+         <zone xml:id="l72" ulx="294" uly="636" lrx="613" lry="660"/>
+         <zone xml:id="l73" ulx="389" uly="664" lrx="630" lry="683"/>
+         <zone xml:id="l74" ulx="388" uly="687" lrx="613" lry="704"/>
+         <zone xml:id="l75" ulx="319" uly="705" lrx="613" lry="726"/>
+         <zone xml:id="l76" ulx="320" uly="730" lrx="614" lry="747"/>
+         <zone xml:id="l77" ulx="321" uly="750" lrx="625" lry="769"/>
+         <zone xml:id="l78" ulx="317" uly="774" lrx="607" lry="794"/>
+         <zone xml:id="l79" ulx="320" uly="798" lrx="628" lry="814"/>
+         <zone xml:id="l80" ulx="319" uly="819" lrx="611" lry="835"/>
+         <zone xml:id="l81" ulx="320" uly="839" lrx="626" lry="857"/>
+         <zone xml:id="l82" ulx="320" uly="862" lrx="626" lry="881"/>
+         <zone xml:id="l83" ulx="318" uly="884" lrx="618" lry="901"/>
+         <zone xml:id="l84" ulx="318" uly="905" lrx="607" lry="922"/>
+         <zone xml:id="l85" ulx="317" uly="928" lrx="615" lry="945"/>
+         <zone xml:id="l86" ulx="318" uly="951" lrx="602" lry="966"/>
+         <zone xml:id="l87" ulx="320" uly="969" lrx="617" lry="987"/>
+         <zone xml:id="l88" ulx="320" uly="990" lrx="610" lry="1010"/>
+         <zone xml:id="l89" ulx="320" uly="1013" lrx="610" lry="1031"/>
+         <zone xml:id="l90" ulx="318" uly="1034" lrx="589" lry="1056"/>
+         <zone xml:id="l91" ulx="310" uly="1057" lrx="623" lry="1080"/>
+         <zone xml:id="l92" ulx="390" uly="1083" lrx="609" lry="1104"/>
+         <zone xml:id="l93" ulx="387" uly="1106" lrx="611" lry="1126"/>
+         <zone xml:id="l94" ulx="313" uly="1119" lrx="612" lry="1147"/>
+         <zone xml:id="l95" ulx="316" uly="1143" lrx="614" lry="1171"/>
+         <zone xml:id="l96" ulx="688" uly="144" lrx="989" lry="190"/>
+         <zone xml:id="l97" ulx="691" uly="177" lrx="973" lry="205"/>
+         <zone xml:id="l98" ulx="695" uly="197" lrx="984" lry="229"/>
+         <zone xml:id="l99" ulx="688" uly="221" lrx="988" lry="251"/>
+         <zone xml:id="l100" ulx="684" uly="237" lrx="978" lry="267"/>
+         <zone xml:id="l101" ulx="690" uly="262" lrx="980" lry="292"/>
+         <zone xml:id="l102" ulx="688" uly="281" lrx="977" lry="311"/>
+         <zone xml:id="l103" ulx="690" uly="305" lrx="983" lry="335"/>
+         <zone xml:id="l104" ulx="689" uly="328" lrx="977" lry="353"/>
+         <zone xml:id="l105" ulx="685" uly="347" lrx="982" lry="375"/>
+         <zone xml:id="l106" ulx="688" uly="368" lrx="982" lry="397"/>
+         <zone xml:id="l107" ulx="691" uly="389" lrx="974" lry="421"/>
+         <zone xml:id="l108" ulx="687" uly="414" lrx="984" lry="444"/>
+         <zone xml:id="l109" ulx="691" uly="439" lrx="986" lry="465"/>
+         <zone xml:id="l110" ulx="685" uly="460" lrx="978" lry="485"/>
+         <zone xml:id="l111" ulx="690" uly="482" lrx="978" lry="507"/>
+         <zone xml:id="l112" ulx="687" uly="506" lrx="978" lry="532"/>
+         <zone xml:id="l113" ulx="687" uly="526" lrx="977" lry="552"/>
+         <zone xml:id="l114" ulx="685" uly="546" lrx="970" lry="573"/>
+         <zone xml:id="l115" ulx="687" uly="572" lrx="982" lry="598"/>
+         <zone xml:id="l116" ulx="684" uly="593" lrx="973" lry="618"/>
+         <zone xml:id="l117" ulx="684" uly="616" lrx="974" lry="644"/>
+         <zone xml:id="l118" ulx="682" uly="641" lrx="972" lry="663"/>
+         <zone xml:id="l119" ulx="681" uly="663" lrx="974" lry="687"/>
+         <zone xml:id="l120" ulx="686" uly="687" lrx="979" lry="708"/>
+         <zone xml:id="l121" ulx="687" uly="708" lrx="975" lry="727"/>
+         <zone xml:id="l122" ulx="686" uly="726" lrx="978" lry="751"/>
+         <zone xml:id="l123" ulx="684" uly="751" lrx="978" lry="771"/>
+         <zone xml:id="l124" ulx="683" uly="769" lrx="975" lry="792"/>
+         <zone xml:id="l125" ulx="684" uly="793" lrx="977" lry="814"/>
+         <zone xml:id="l126" ulx="684" uly="815" lrx="977" lry="836"/>
+         <zone xml:id="l127" ulx="684" uly="839" lrx="985" lry="862"/>
+         <zone xml:id="l128" ulx="682" uly="865" lrx="973" lry="884"/>
+         <zone xml:id="l129" ulx="682" uly="885" lrx="968" lry="903"/>
+         <zone xml:id="l130" ulx="683" uly="905" lrx="976" lry="925"/>
+         <zone xml:id="l131" ulx="682" uly="928" lrx="975" lry="943"/>
+         <zone xml:id="l132" ulx="682" uly="947" lrx="974" lry="965"/>
+         <zone xml:id="l133" ulx="685" uly="969" lrx="969" lry="986"/>
+         <zone xml:id="l134" ulx="683" uly="989" lrx="974" lry="1009"/>
+         <zone xml:id="l135" ulx="685" uly="1013" lrx="973" lry="1035"/>
+         <zone xml:id="l136" ulx="680" uly="1038" lrx="916" lry="1058"/>
+         <zone xml:id="l137" ulx="680" uly="1058" lrx="976" lry="1076"/>
+         <zone xml:id="l138" ulx="679" uly="1080" lrx="978" lry="1099"/>
+         <zone xml:id="l139" ulx="678" uly="1104" lrx="984" lry="1122"/>
+         <zone xml:id="l140" ulx="685" uly="1127" lrx="981" lry="1146"/>
+         <zone xml:id="l141" ulx="684" uly="1151" lrx="979" lry="1171"/>
+      </surface>
+      <surface>
+         <graphic url="EVALUATION/Syxte3.jpeg" width="1024px" height="1543px" />
+         <zone xml:id="l198" points = " 392,364 492,441 486,391 707,393 707,371 " />
+         <zone xml:id="l142" ulx="45" uly="174" lrx="339" lry="192" />
+         <zone xml:id="l143" ulx="50" uly="200" lrx="336" lry="215" />
+         <zone xml:id="l144" ulx="51" uly="221" lrx="346" lry="239" />
+         <zone xml:id="l145" ulx="50" uly="242" lrx="340" lry="261" />
+         <zone xml:id="l146" ulx="50" uly="264" lrx="340" lry="283" />
+         <zone xml:id="l147" ulx="49" uly="286" lrx="341" lry="303" />
+         <zone xml:id="l148" ulx="47" uly="306" lrx="346" lry="326" />
+         <zone xml:id="l149" ulx="49" uly="329" lrx="347" lry="347" />
+         <zone xml:id="l150" ulx="50" uly="350" lrx="348" lry="368" />
+         <zone xml:id="l151" ulx="51" uly="373" lrx="346" lry="388" />
+         <zone xml:id="l152" ulx="47" uly="392" lrx="338" lry="411" />
+         <zone xml:id="l153" ulx="44" uly="412" lrx="334" lry="433" />
+         <zone xml:id="l154" ulx="46" uly="436" lrx="347" lry="455" />
+         <zone xml:id="l155" ulx="50" uly="459" lrx="354" lry="481" />
+         <zone xml:id="l156" ulx="48" uly="483" lrx="343" lry="500" />
+         <zone xml:id="l157" ulx="44" uly="502" lrx="345" lry="521" />
+         <zone xml:id="l158" ulx="45" uly="524" lrx="344" lry="546" />
+         <zone xml:id="l159" ulx="46" uly="549" lrx="353" lry="567" />
+         <zone xml:id="l160" ulx="46" uly="573" lrx="346" lry="592" />
+         <zone xml:id="l161" ulx="44" uly="591" lrx="353" lry="616" />
+         <zone xml:id="l162" ulx="48" uly="616" lrx="359" lry="637" />
+         <zone xml:id="l163" ulx="46" uly="639" lrx="353" lry="657" />
+         <zone xml:id="l164" ulx="50" uly="661" lrx="343" lry="683" />
+         <zone xml:id="l165" ulx="41" uly="682" lrx="341" lry="703" />
+         <zone xml:id="l166" ulx="48" uly="702" lrx="350" lry="727" />
+         <zone xml:id="l167" ulx="42" uly="724" lrx="351" lry="748" />
+         <zone xml:id="l168" ulx="43" uly="744" lrx="228" lry="765" />
+         <zone xml:id="l169" ulx="25" uly="755" lrx="340" lry="787" />
+         <zone xml:id="l170" ulx="104" uly="788" lrx="344" lry="810" />
+         <zone xml:id="l171" ulx="103" uly="813" lrx="346" lry="832" />
+         <zone xml:id="l172" ulx="44" uly="824" lrx="346" lry="856" />
+         <zone xml:id="l173" ulx="38" uly="852" lrx="341" lry="876" />
+         <zone xml:id="l174" ulx="44" uly="872" lrx="342" lry="901" />
+         <zone xml:id="l175" ulx="42" uly="891" lrx="341" lry="922" />
+         <zone xml:id="l176" ulx="39" uly="911" lrx="345" lry="941" />
+         <zone xml:id="l177" ulx="45" uly="936" lrx="350" lry="963" />
+         <zone xml:id="l178" ulx="44" uly="958" lrx="346" lry="990" />
+         <zone xml:id="l179" ulx="42" uly="976" lrx="344" lry="1008" />
+         <zone xml:id="l180" ulx="46" uly="1002" lrx="346" lry="1029" />
+         <zone xml:id="l181" ulx="46" uly="1020" lrx="341" lry="1050" />
+         <zone xml:id="l182" ulx="41" uly="1041" lrx="340" lry="1072" />
+         <zone xml:id="l183" ulx="45" uly="1065" lrx="345" lry="1095" />
+         <zone xml:id="l184" ulx="45" uly="1090" lrx="334" lry="1114" />
+         <zone xml:id="l185" ulx="43" uly="1107" lrx="345" lry="1139" />
+         <zone xml:id="l186" ulx="46" uly="1129" lrx="344" lry="1163" />
+         <zone xml:id="l187" ulx="42" uly="1153" lrx="340" lry="1182" />
+         <zone xml:id="l188" ulx="405" uly="126" lrx="715" lry="201" />
+         <zone xml:id="l189" ulx="414" uly="197" lrx="707" lry="223" />
+         <zone xml:id="l190" ulx="414" uly="216" lrx="712" lry="243" />
+         <zone xml:id="l191" ulx="414" uly="238" lrx="704" lry="265" />
+         <zone xml:id="l192" ulx="411" uly="260" lrx="709" lry="285" />
+         <zone xml:id="l193" ulx="408" uly="280" lrx="709" lry="308" />
+         <zone xml:id="l194" ulx="412" uly="302" lrx="710" lry="326" />
+         <zone xml:id="l195" ulx="411" uly="321" lrx="728" lry="348" />
+         <zone xml:id="l196" ulx="408" uly="342" lrx="675" lry="369" />
+         <zone xml:id="l197" ulx="476" uly="390" lrx="705" lry="410" />
+         <zone xml:id="l199" ulx="477" uly="412" lrx="724" lry="437" />
+         <zone xml:id="l200" ulx="411" uly="433" lrx="707" lry="458" />
+         <zone xml:id="l201" ulx="408" uly="458" lrx="700" lry="482" />
+         <zone xml:id="l202" ulx="410" uly="484" lrx="705" lry="506" />
+         <zone xml:id="l203" ulx="408" uly="506" lrx="713" lry="524" />
+         <zone xml:id="l204" ulx="408" uly="525" lrx="720" lry="547" />
+         <zone xml:id="l205" ulx="405" uly="547" lrx="710" lry="570" />
+         <zone xml:id="l206" ulx="401" uly="569" lrx="709" lry="590" />
+         <zone xml:id="l207" ulx="404" uly="592" lrx="715" lry="616" />
+         <zone xml:id="l208" ulx="410" uly="613" lrx="725" lry="638" />
+         <zone xml:id="l209" ulx="410" uly="639" lrx="713" lry="661" />
+         <zone xml:id="l210" ulx="413" uly="663" lrx="722" lry="684" />
+         <zone xml:id="l211" ulx="407" uly="685" lrx="710" lry="703" />
+         <zone xml:id="l212" ulx="405" uly="707" lrx="707" lry="724" />
+         <zone xml:id="l213" ulx="408" uly="728" lrx="720" lry="749" />
+         <zone xml:id="l214" ulx="407" uly="751" lrx="711" lry="769" />
+         <zone xml:id="l215" ulx="413" uly="768" lrx="713" lry="792" />
+         <zone xml:id="l216" ulx="411" uly="790" lrx="711" lry="812" />
+         <zone xml:id="l217" ulx="408" uly="812" lrx="708" lry="833" />
+         <zone xml:id="l218" ulx="408" uly="830" lrx="706" lry="857" />
+         <zone xml:id="l219" ulx="407" uly="854" lrx="704" lry="878" />
+         <zone xml:id="l220" ulx="410" uly="877" lrx="702" lry="904" />
+         <zone xml:id="l221" ulx="409" uly="899" lrx="700" lry="922" />
+         <zone xml:id="l222" ulx="411" uly="921" lrx="707" lry="940" />
+         <zone xml:id="l223" ulx="411" uly="939" lrx="717" lry="964" />
+         <zone xml:id="l224" ulx="410" uly="963" lrx="695" lry="983" />
+         <zone xml:id="l225" ulx="411" uly="982" lrx="708" lry="1005" />
+         <zone xml:id="l226" ulx="410" uly="1005" lrx="712" lry="1028" />
+         <zone xml:id="l227" ulx="409" uly="1026" lrx="711" lry="1051" />
+         <zone xml:id="l228" ulx="411" uly="1050" lrx="708" lry="1072" />
+         <zone xml:id="l229" ulx="410" uly="1071" lrx="713" lry="1097" />
+         <zone xml:id="l230" ulx="410" uly="1095" lrx="712" lry="1116" />
+         <zone xml:id="l231" ulx="407" uly="1116" lrx="706" lry="1140" />
+         <zone xml:id="l232" ulx="411" uly="1136" lrx="710" lry="1161" />
+         <zone xml:id="l233" ulx="415" uly="1160" lrx="721" lry="1185" />
+      </surface>
+      <surface>
+         <graphic url="EVALUATION/Syxte4.jpeg" width="1024px" height="1542px" />
+         <zone xml:id="l234" ulx="312" uly="111" lrx="612" lry="184" />
+         <zone xml:id="l235" ulx="317" uly="184" lrx="610" lry="202" />
+         <zone xml:id="l236" ulx="316" uly="203" lrx="424" lry="226" />
+         <zone xml:id="l237" ulx="308" uly="227" lrx="608" lry="249" />
+         <zone xml:id="l238" ulx="388" uly="251" lrx="610" lry="270" />
+         <zone xml:id="l239" ulx="382" uly="273" lrx="607" lry="290" />
+         <zone xml:id="l240" ulx="317" uly="291" lrx="615" lry="310" />
+         <zone xml:id="l241" ulx="319" uly="315" lrx="612" lry="333" />
+         <zone xml:id="l242" ulx="314" uly="338" lrx="621" lry="356" />
+         <zone xml:id="l243" ulx="318" uly="359" lrx="625" lry="379" />
+         <zone xml:id="l244" ulx="318" uly="381" lrx="618" lry="403" />
+         <zone xml:id="l245" ulx="318" uly="404" lrx="618" lry="427" />
+         <zone xml:id="l246" ulx="316" uly="423" lrx="609" lry="447" />
+         <zone xml:id="l247" ulx="317" uly="447" lrx="631" lry="467" />
+         <zone xml:id="l248" ulx="317" uly="470" lrx="609" lry="492" />
+         <zone xml:id="l249" ulx="314" uly="494" lrx="609" lry="509" />
+         <zone xml:id="l250" ulx="319" uly="511" lrx="615" lry="531" />
+         <zone xml:id="l251" ulx="320" uly="531" lrx="625" lry="558" />
+         <zone xml:id="l252" ulx="315" uly="560" lrx="615" lry="576" />
+         <zone xml:id="l253" ulx="318" uly="578" lrx="627" lry="604" />
+         <zone xml:id="l254" ulx="319" uly="605" lrx="623" lry="624" />
+         <zone xml:id="l255" ulx="314" uly="622" lrx="625" lry="649" />
+      </surface>
+   </facsimile>
+   <text>
+      <body>
+
+
+         <p>
+            <milestone unit="section"/>
+            <seg facs="#l1">Ci comen-</seg>
+            <lb/>
+            <seg facs="#l2">ce la &vu;ie &et; la passion seint &Ss;&y;xte le bene-</seg>
+            <lb/>
+            <seg facs="#l3">oit mart&y;r nostre signor &Ji;esu&espace;&Cc;rist</seg>
+         </p>
+         <p>
+            <cb n="1"/>
+            <lb/>
+            <seg facs="#l4">[[C]][E] fu el tens</seg>
+            <lb/>
+            <seg facs="#l5">qe &Dd;ecius &Cc;e-</seg>
+            <lb/>
+            <seg facs="#l6">sar fu em&per;-</seg>
+            <lb/>
+            <seg facs="#l7">eres qe cil qi</seg>
+            <lb/>
+            <seg facs="#l8">nostre signor</seg>
+            <lb/>
+            <seg facs="#l9">apeloient</seg>
+            <lb/>
+            <seg facs="#l10">estoient</seg>
+            <lb/>
+            <seg facs="#l11">mart&y;ri&é;</seg>
+            <lb/>
+            <seg facs="#l12">&et; soffroient</seg>
+            <lb/>
+            <seg facs="#l13">griez tor&men;z</seg>
+            <lb/>
+            <seg facs="#l14">por l&apost;amor de lui. [E]n cel tens estoit mes</seg>
+            <lb/>
+            <seg facs="#l15">sires seins &Ss;&y;xtes qi estoit n&é;z d&apost;&Aa;thenes.</seg>
+            <lb/>
+            <seg facs="#l16">&Pp;h&y;losophes fu premiers &et; puis ensi&vu;i</seg>
+            <lb/>
+            <seg facs="#l17">les oeu&vu;res nostre signor &Ji;esu&espace;&Cc;rist mout</seg>
+            <lb/>
+            <seg facs="#l18">&vu;eraiement &punctus-elevatus; e&vu;esqes &à; &Rr;ome de ceus qi</seg>
+            <lb/>
+            <seg facs="#l19">nostre signor &et; saide&sens-incertain; reclamoient&virgule; &et; molt</seg>
+            <lb/>
+            <seg facs="#l20">les ensegnoit docement de &vu;eraie doctri-</seg>
+            <lb/>
+            <seg facs="#l21">ne. [Q]ant &Dd;ecius &Cc;esar &et; li pre&vu;oz sorent</seg>
+            <lb/>
+            <seg facs="#l22">&et; &vu;irent&virgule; qe la crestient&é;z monteplioit</seg>
+            <lb/>
+            <seg facs="#l23">&par; le seint home qi &Ss;&y;xtes a&vu;oit non &punctus-elevatus; il</seg>
+            <lb/>
+            <seg facs="#l24">&com;manderent qe l&apost;en l&apost;amenast de&vu;ant</seg>
+            <lb/>
+            <seg facs="#l25">els &par;&espace;nuit&virgule; &et; lui &et; ses clers dedenz la cit&é;&point0;</seg>
+            <lb/>
+            <seg facs="#l26">[L]ors dist seinz &Ss;&y;xtes &à; ses clers qant il</seg>
+            <lb/>
+            <seg facs="#l27">o&ï; les messages por aus reconforter &guillemet-ouvrant; &Mm;i</seg>
+            <lb/>
+            <seg facs="#l28">chier frere &et; mi chier compaignon n&apost;ai&é;z</seg>
+            <lb/>
+            <seg facs="#l29">nule poor&virgule; &vu;os sa&vu;&é;z bien com granz</seg>
+            <lb/>
+            <seg facs="#l30">tormenz tuit li seint ont soffert&virgule; pour</seg>
+            <lb/>
+            <seg facs="#l31">&par;&vu;enir seurement &à; la &vu;ie &par;durable&virgule; &et;</seg>
+            <lb/>
+            <seg facs="#l32">nostre sires &Ji;esu&espace;&Cc;rist meesmement souf</seg>
+            <lb/>
+            <seg facs="#l33">fir mort &et; passion por nostre salu&virgule; &et; si n&os;</seg>
+            <lb/>
+            <seg facs="#l34">dona example&guillemet-fermant2; &Et; qant li seinz hom ot ce</seg>
+            <lb/>
+            <seg facs="#l35">dit&punctus-elevatus; il s&apost;escria &à; haute &vu;oiz&virgule; &et;
+               si dist &guillemet; &Vu;en&é;z</seg>
+            <lb/>
+            <seg facs="#l36">en&virgule; &et; si ni ait celui qi donne nule
+               poor&guillemet-fermant;</seg>
+            <lb/>
+            <seg facs="#l37">Donc li respondirent&virgule; &Ff;elicismes&virgule; &et;
+               &Aa;gapi&virgule0;</seg>
+            <lb/>
+            <seg facs="#l38">ces qi si deciple estoient&virgule0; &et; si distrent
+               &guillemet-ouvrant; [O]&ù;</seg>
+            <lb/>
+            <seg facs="#l39">porrons nos aler sanz toi qi ies nostre &per;e &point-interrogation;
+               &guillemet;</seg>
+            <lb/>
+            <seg facs="#l40">[A] cele ore tot &par;&espace;nuit fu seinz &Ss;&y;xtes me-</seg>
+            <lb/>
+            <seg facs="#l41">n&é;z de&vu;ant l&apost;em&per;eor &et; de&vu;ant le
+               &pre;&vu;ost&virgule;</seg>
+            <lb/>
+            <seg facs="#l42">&et; li duz d&y;acre ensamble o&espace;lui. [L]ors par-</seg>
+            <lb/>
+            <seg facs="#l43">la li em&per;eres au seint home &et; si dist &guillemet-ouvrant;
+               [S]&é;z</seg>
+            <lb/>
+            <seg facs="#l44">tu por qel chose tu ies pris &et; amen&é;z de-</seg>
+            <lb/>
+            <seg facs="#l45">&vu;ant moi &point-interrogation; &guillemet; [S]ainz &Ss;&y;xtes
+               respondi gel</seg>
+            <lb/>
+            <seg facs="#l46">sai bien. [&Dd;]ecius &Cc;esar li dist &guillemet-ouvrant; [S]e tu le
+               s&é;z</seg>
+            <lb/>
+            <seg facs="#l47">bien&punctus-elevatus; fai aussi qe tuit le facent&virgule; si qe
+               tu</seg>
+            <lb/>
+            <seg facs="#l48">puisses &vu;i&vu;re &et; ti clerc acroistre &point-interrogation; &guillemet; &Ll;i seins</seg>
+            <lb/>
+            <seg facs="#l49">hom li respondi &guillemet-ouvrant; [&Ji;]e ai fait &et; faz &vu;eraie-</seg>
+            
+            <pb n="2"/>
+            <cb n="2"/>
+            
+            <lb/>
+            <seg facs="#l50">ment qe m&é;s clergies acroisse&guillemet-fermant; [D]ecius li</seg>
+            <lb/>
+            <seg facs="#l51">dist &guillemet-ouvrant; [D]ont sacrefie &à; nos dex q<hi rend="sup">i</hi> ne sont mie</seg>
+            <lb/>
+            <seg facs="#l52">mortel&virgule; &et; si soies princes des prestres&guillemet-fermant;
+               [S]einz</seg>
+            <lb/>
+            <seg facs="#l53">&Ss;&y;xtes li respondi &guillemet-ouvrant; &Ji;&apost;ai toz tens
+               sacrefie &et; en-</seg>
+            <lb/>
+            <seg facs="#l54">core sacrefie &ji;e pure oiste &et; &par;durable&virgule; &et;</seg>
+            <lb/>
+            <seg facs="#l55">sanz tache &à; &Dd;eu le pere tout puissant&virgule; &et;</seg>
+            <lb/>
+            <seg facs="#l56">nostre signor &Ji;esu&espace;&Cc;rist son fil &et; au seint</seg>
+            <lb/>
+            <seg facs="#l57">esperit&guillemet-fermant; [D]ecius dist &guillemet-ouvrant0;
+               &Cc;onseille toi &et; ton cler-</seg>
+            <lb/>
+            <seg facs="#l58">gie aussi com nos &vu;os consellons&guillemet-fermant; [S]einz</seg>
+            <lb/>
+            <seg facs="#l59">&Ss;&y;xtes respondi &guillemet-ouvrant; [T]res qa &sens-incertain;
+               <!-- Peut être "tresque" --> ore av&é; &con;selli&é;</seg>
+            <lb/>
+            <seg facs="#l60">&et; moi &et; mon clergie qe &ji;e les puisse toz</seg>
+            <lb/>
+            <seg facs="#l61">deli&vu;rer&virgule; &et; oster de la mort
+               &par;durable&guillemet-fermant; Deci-</seg>
+            <lb/>
+            <seg facs="#l62">uz li dist &guillemet-ouvrant; &Ss;acrefie &à; noz dex&virgule; &et; se
+               tu ce ne</seg>
+            <lb/>
+            <seg facs="#l63">&vu;ius fere&sens-incertain; &punctus-elevatus; saces qe tuit li autre
+               porront</seg>
+            <lb/>
+            <seg facs="#l64">&à; toi prendre example&guillemet-fermant; [S]einz &Ss;&y;xtes
+               respon-</seg>
+            <lb/>
+            <seg facs="#l65">di &guillemet-ouvrant; &Ji;e t&apost;ai &ji;a une foiz dit qe &ji;e faz
+               sacrefice</seg>
+            <lb/>
+            <seg facs="#l66">&à; mon &Dd;eu &et; &à; nostre signor &Ji;esu&espace;&Cc;rist son</seg>
+            <lb/>
+            <seg facs="#l67">fil&guillemet-fermant; [L]ors dist &Dd;ec&y;us &Cc;esar &à; ses
+               che&vu;aliers &deux-points;</seg>
+            <lb/>
+            <seg facs="#l68">&guillemet; &Pp;ren&é;s le &et; si le men&é;z au temple
+               mart&y;r&virgule;</seg>
+            <lb/>
+            <seg facs="#l69">&et; si face sacrefice au deu &et; se il ce ne &vu;elt</seg>
+            <lb/>
+            <seg facs="#l70">faire met&é;z le emprisson en la chartre</seg>
+            <lb/>
+            <seg facs="#l71">de &Rr;oarnertine&nom-incertain;.</seg>
+         </p>
+         
+         <p>
+            <lb/>
+            <seg facs="#l72">[[L]]ors fu men&é;z li seins hom au</seg>
+            <lb/>
+            <seg facs="#l73">temple de lor deu qi &Mm;ars estoit</seg>
+            <lb/>
+            <seg facs="#l74">apel&é;z&virgule; &et; l&à; le &com;mencierent li</seg>
+            <lb/>
+            <seg facs="#l75">che&vu;alier &à; constraindre q&apost;il li feist sacre-</seg>
+            <lb/>
+            <seg facs="#l76">fice. Li seinz hom lor dist &guillemet-ouvrant; He maleureus</seg>
+            <lb/>
+            <seg facs="#l77">qi aor&é;z &et; reqer&é;z aide &à; ces &y;doles&virgule; qi sont</seg>
+            <lb/>
+            <seg facs="#l78">&vu;eines &et; faites &par; main d&apost;ome&virgule; &et; qi
+               sont</seg>
+            <lb/>
+            <seg facs="#l79">mues &et; sordes ne ne pueent &à; eles aidier</seg>
+            <lb/>
+            <seg facs="#l80">ne &à; autrui. [M]i biau fil o&é;z moi &et; enten-</seg>
+            <lb/>
+            <seg facs="#l81">d&é;z. &et; li deli&vu;r&é;z &vu;os ames des &par;durables</seg>
+            <lb/>
+            <seg facs="#l82">tormenz&virgule; &et; si ne creni&é;z mie les tormenz</seg>
+            <lb/>
+            <seg facs="#l83">de cest siecle &punctus-elevatus; [M]&é;s ceus qi sont
+               &par;durable&virgule;</seg>
+            <lb/>
+            <seg facs="#l84">&et; si rece&vu;&é;z &et; faites penitance car &vu;oz</seg>
+            <lb/>
+            <seg facs="#l85">sacrefi&é;z as &y;doles aussi &con;cil qi mielz ne</seg>
+            <lb/>
+            <seg facs="#l86">se&vu;ent&guillemet-fermant; [Q]ant cil qi l&à; l&apost;a&vu;oient
+               men&é;</seg>
+            <lb/>
+            <seg facs="#l87">o&ï;rent q&apost;il despisoit le &com;mandement l&apost;em-</seg>
+            <lb/>
+            <seg facs="#l88">pereor &punctus-elevatus; il l&apost;enmenerent &vu;ers la
+               prisson</seg>
+            <lb/>
+            <seg facs="#l89">o&ù; l&apost;en lor a&vu;oit comand&é; &et; a&vu;eqes lui</seg>
+            <lb/>
+            <seg facs="#l90">les .II. d&y;acres &Ff;elicisme &et; &Aa;gapite.</seg>
+         </p>
+         <p>
+            <lb/>
+            <seg facs="#l91">[[Q]]uant seinz &Ll;orenz&virgule0; qi dont estoit</seg>
+            <lb/>
+            <seg facs="#l92">arced&y;acres&virgule0; o&ï; &et; &con;nut con en</seg>
+            <lb/>
+            <seg facs="#l93">menoit seint &Ss;&y;xte l&apost;e&vu;esqe &punctus-elevatus;</seg>
+            <lb/>
+            <seg facs="#l94">ille &com;menca <choice>
+                  <sic>a a</sic>
+                  <corr>&à;</corr>
+               </choice> parler en ceste maniere</seg>
+            <lb/>
+            <seg facs="#l95">&et; si dist &guillemet-ouvrant; [B]iaus peres o&ù; &vu;as tu sans
+               ton</seg>
+            <cb n="3"/>
+            <lb/>
+            <seg facs="#l96">fil &punctus-interrogatus; [E]t o&ù; &vu;as tu qi ies seinz
+               prestres&virgule; sanz</seg>
+            <lb/>
+            <seg facs="#l97">ton d&y;acre &punctus-interrogatus; [T]u ne sacrefias onqes sanz</seg>
+            <lb/>
+            <seg facs="#l98">menistre ne si ne l&apost;as mie acostume. Et qel</seg>
+            <lb/>
+            <seg facs="#l99">chose desplest ore &à; ta seinte paternit&é; de <unclear
+                  reason="illegible">mor</unclear>&punctus-interrogatus;</seg>
+            <lb/>
+            <seg facs="#l100">[A]s me tu donc pro&vu;e de nule rien q&apost;il &vu;ene-</seg>
+            <lb/>
+            <seg facs="#l101">ne soit &et; &vu;raie&guillemet-fermant; [D]onc respondi sains
+               &Ss;&y;xtes</seg>
+            <lb/>
+            <seg facs="#l102">a seint &Ll;orenz&virgule; &et; si li dist &guillemet-ouvrant; [B]iaus
+               fuiz&virgule; &ji;e ne</seg>
+            <lb/>
+            <seg facs="#l103">te relenqis mie ne ne deguerpiz&virgule; m&é;s plus</seg>
+            <lb/>
+            <seg facs="#l104">grant estrif &et; plus grief torment te sont</seg>
+            <lb/>
+            <seg facs="#l105">don&é; et t&apost;atendent. [N]os rece&vu;ons le cours</seg>
+            <lb/>
+            <seg facs="#l106">de legiere peine aussi com &vu;iel home&virgule; &et; toi</seg>
+            <lb/>
+            <seg facs="#l107">atent plus glorieuse &vu;ictoire einsi &com;me</seg>
+            <lb/>
+            <seg facs="#l108">&ji;o&vu;encel. [L]esse le plorer car tu &vu;endras a&pré;s</seg>
+            <lb/>
+            <seg facs="#l109">moi&virgule; &et; si m&apost;enfuiras qi ies d&y;acres au chief</seg>
+            <lb/>
+            <seg facs="#l110">de .III. &ji;ors. [I]l n&apost;afiert mie &à; toi qe tu recoi-</seg>
+            <lb/>
+            <seg facs="#l111">&vu;es passion desouz mestre aussi &com;me se</seg>
+            <lb/>
+            <seg facs="#l112">tu queroies aide. [E]t por qoi demandes tu</seg>
+            <lb/>
+            <seg facs="#l113">ne reqiers compaignie de ta passion &point-interrogation1; Je</seg>
+            <lb/>
+            <seg facs="#l114">te deguerpiz tot mon iretage&virgule; &et; por qoi</seg>
+            <lb/>
+            <seg facs="#l115">me vielz tu &vu;eoir &punctus-interrogatus; [E]l&y;es deguerpi
+               &Hh;el&y;se&um;&nom-incertain;</seg>
+            <lb/>
+            <seg facs="#l116">&et; si ne li toli&sens-incertain; mie sa &vu;ertu&guillemet-fermant;
+               [Q]ant il ot ce</seg>
+            <lb/>
+            <seg facs="#l117">dit&virgule; si li &com;manda q&apost;il preist toz les tresors</seg>
+            <lb/>
+            <seg facs="#l118">de l&apost;&y;glise&virgule; si les de&par;tist &et; donast l&à; o&ù;
+               il</seg>
+            <lb/>
+            <seg facs="#l119">seust q&apost;il fussent mielz emploi&é;s. Lors do-</seg>
+            <lb/>
+            <seg facs="#l120">na seint &Ss;&y;xte &à; seint &Ll;orens le d&y;acre tou-</seg>
+            <lb/>
+            <seg facs="#l121">tes les facult&é;z &et; les a&vu;oirs de l&apost;&y;glisse.</seg>
+            <lb/>
+            <seg facs="#l122">[E]t donc prist seins &Ll;orens&virgule; la poeste del seint</seg>
+            <lb/>
+            <seg facs="#l123">e&vu;esqe&virgule; si &com;menca a enquerr&é; &par;tout l&à;
+               o&ù;</seg>
+            <lb/>
+            <seg facs="#l124">li clerc estoient &et; li po&vu;re&virgule; si portoit a&vu;ec</seg>
+            <lb/>
+            <seg facs="#l125">lui les a&vu;oirs &punctus-elevatus; si les donoit l&à; o&ù;
+               mestiers</seg>
+            <lb/>
+            <seg facs="#l126">estoit. [E]t apr&é;s &vu;int enz el mont de &Cc;el&y;on</seg>
+            <lb/>
+            <seg facs="#l127">&à; la meson d&apost;une &vu;eue deme qi
+               l&apost;amanoit&virgule;</seg>
+            <lb/>
+            <seg facs="#l128">qi .XI. anz a&vu;oit est&é; a&vu;ec son baron&virgule; &et;</seg>
+            <lb/>
+            <seg facs="#l129">.XXVII. anz &vu;eue&virgule; cele feme [a]&vu;oit en sa</seg>
+            <lb/>
+            <seg facs="#l130">meson molt de crestienz&virgule0; repoz&virgule0; prestres &et;</seg>
+            <lb/>
+            <seg facs="#l131">clers &et; por la poor des t&y;ranz. [Q]ant seinz</seg>
+            <lb/>
+            <seg facs="#l132">&Ll;orenz le sot&virgule; il &vu;int &par;&espace;nuit&virgule; si lor
+               aporta</seg>
+            <lb/>
+            <seg facs="#l133">&vu;esteures &et; a&vu;oirs &et; apr&é;s lor la&vu;a toz</seg>
+            <lb/>
+            <seg facs="#l134">les pi&é;z. [Q]ant il ot ce fet &punctus-elevatus; la &vu;eue
+               feme</seg>
+            <lb/>
+            <seg facs="#l135">en cui meson il estoient &punctus-elevatus; se lessa cheoir</seg>
+            <lb/>
+            <seg facs="#l136">as piez saint &Ll;orenz &et; si li dist &deux-points;</seg></p>
+         <p>
+            <lb/>
+            <seg facs="#l137">&guillemet; [[JI]][E] te pri &et; coniur de &par; nostre signor
+               &Ji;esu</seg>
+            <lb/>
+            <seg facs="#l138">&Cc;rist&virgule; qe tu me metes tes meins sor mon</seg>
+            <lb/>
+            <seg facs="#l139">chief&virgule; car &ji;e iai molt grant doleur &et; <choice>
+                  <abbr>mlt</abbr>
+                  <expan>m<ex>o</ex>lt</expan>
+               </choice></seg>
+            <lb/>
+            <seg facs="#l140">tres grant enfermet&é;. Lors dist seinz &Ll;orenz</seg>
+            <lb/>
+            <seg facs="#l141">&à; la feme qi &Cc;&y;riace estoit apelee. &JI;e te me-</seg>
+            <pb n="3"/>
+            <cb n="4"/>
+            <lb/>
+            <seg facs="#l142">terai ma mein sor ton chief [E]l non nostre</seg>
+            <lb/>
+            <seg facs="#l143">signeur &Ji;esu le fiuz &Dd;eu. [E]t lors li fist</seg>
+            <lb/>
+            <seg facs="#l144">le signe de la &vu;raie croiz seur son chief&virgule; &et; si li</seg>
+            <lb/>
+            <seg facs="#l145">mist ses meins deseure &et; puis mist deseur</seg>
+            <lb/>
+            <seg facs="#l146">li le drap dont l&apost;en essuiot les pi&é;z des seinz</seg>
+            <lb/>
+            <seg facs="#l147">homes qi l&à; estoient. [E]t tantost fu ele ga-</seg>
+            <lb/>
+            <seg facs="#l148">rie de la grant enfermet&é;. En cele meisme</seg>
+            <lb/>
+            <seg facs="#l149">nuit se de&par;ti seinz &Ll;orenz de l&à;&virgule; &et; si
+               &com;menca</seg>
+            <lb/>
+            <seg facs="#l150">aquerr&é; les crestienz par tout l&à; o&ù; il estoi-</seg>
+            <lb/>
+            <seg facs="#l151">ent assambl&é; &punctus-elevatus; fust en mesons ou en crou-</seg>
+            <lb/>
+            <seg facs="#l152">tes ou en autres leus&virgule; tant qe il &vu;int en</seg>
+            <lb/>
+            <seg facs="#l153">la rue del charnier&virgule; &et; l&à; tro&vu;a il molt de</seg>
+            <lb/>
+            <seg facs="#l154">crestiens assambl&é;z &à; la meson d&apost;un crestien</seg>
+            <lb/>
+            <seg facs="#l155">qi &Nn;art&y;ses&nom-incertain; estoit apel&é;z. [Q]ant seinz
+               &Ll;orenz</seg>
+            <lb/>
+            <seg facs="#l156">i fu entr&é;z tot plorant&virgule; il lor la&vu;a les pi&é;z</seg>
+            <lb/>
+            <seg facs="#l157">&et; si lor dona de l&apost;a&vu;oir qe seinz &Ss;&y;xtes a&vu;oit</seg>
+            <lb/>
+            <seg facs="#l158">&com;mand&é; &à; doner as po&vu;res. [E]n cele meson</seg>
+            <lb/>
+            <seg facs="#l159">tro&vu;a il .I. home qi estoit a&vu;ugles si a&vu;oit</seg>
+            <lb/>
+            <seg facs="#l160">non cressencies&virgule; &et; cil li &com;menca a proier tot</seg>
+            <lb/>
+            <seg facs="#l161">emplorant &et; &à; dire &guillemet-ouvrant; [S]eins hom a touch&é;
+               mes</seg>
+            <lb/>
+            <seg facs="#l162">iols de tes meins si qe &ji;e puisse &vu;eoir ta
+               face&guillemet-fermant;</seg>
+            <lb/>
+            <seg facs="#l163">[D]onc &com;menca li seinz amis &Dd;eu &à; dire &guillemet-ouvrant;
+               Nostre</seg>
+            <lb/>
+            <seg facs="#l164">sire &Ji;esu&espace;&Cc;rist qi a&espace;o&vu;ri les iols del a&vu;ugle
+               &punctus-elevatus;</seg>
+            <lb/>
+            <seg facs="#l165">te puisse enluminer&virgule; &et; tantost com il ot</seg>
+            <lb/>
+            <seg facs="#l166">fet le signe de la &vu;eraie croiz nostre signor</seg>
+            <lb/>
+            <seg facs="#l167">sor ses iols &punctus-elevatus; cil &vu;it la lumiere &et; saint
+               &Ll;or&en;z</seg>
+            <lb/>
+            <seg facs="#l168">einsi q&apost;il li a&vu;oit requis&point0;</seg>
+         </p>
+         <p>
+            <lb/>
+            <seg facs="#l169">[[L]]ors s&apost;en de&par;ti seinz &Ll;orenz&virgule; &et; si o&ï;</seg>
+            <lb/>
+            <seg facs="#l170">dire qe en la rue qi estoit apelee</seg>
+            <lb/>
+            <seg facs="#l171">&Pp;atrisse&nom-incertain; a&vu;oit molt de crestienz</seg>
+            <lb/>
+            <seg facs="#l172">assambl&é;z en une croute &et; l&à; &vu;int il &à;&espace;aus</seg>
+            <lb/>
+            <seg facs="#l173">&et; si porta a&vu;ec lui ce qe mestiers estoit &à; els&virgule;</seg>
+            <lb/>
+            <seg facs="#l174">&et; si en i a&vu;oit bien assambl&é;z qe homes qe</seg>
+            <lb/>
+            <seg facs="#l175">femes .LXIII. [E]t lors les baisa seinz &Ll;orens</seg>
+            <lb/>
+            <seg facs="#l176">tot emplorant&virgule; &et; si lor dona pais&virgule; l&à; tro&vu;a</seg>
+            <lb/>
+            <seg facs="#l177">il un prestre qi &par;non estoit apel&é;z &Ji;ustins</seg>
+            <lb/>
+            <seg facs="#l178">qe seinz &Ss;&y;xtes a&vu;oit orden&é;. [Q]ant seinz</seg>
+            <lb/>
+            <seg facs="#l179">&Ll;orenz le &vu;it&virgule; il se mist &à; &ji;enols sor le
+               pa&vu;e-</seg>
+            <lb/>
+            <seg facs="#l180">ment por baisier ses pi&é;z. [E]t seins &Ji;ustins</seg>
+            <lb/>
+            <seg facs="#l181">se remist aussi &à; genoz&virgule; por baisier les pi&é;z</seg>
+            <lb/>
+            <seg facs="#l182">seint &Ll;orens. [A] ce faire mistrent il grant</seg>
+            <lb/>
+            <seg facs="#l183">piet&é; qe li uns ne lessoit beisier ses pi&é;z &à;</seg>
+            <lb/>
+            <seg facs="#l184">l&apost;autre. Et donc dist seinz &Ll;orenz &guillemet-ouvrant;
+               [B]iaus</seg>
+            <lb/>
+            <seg facs="#l185">sire raemplissi&é;z mon desirier &et; si me les-</seg>
+            <lb/>
+            <seg facs="#l186">-si&é;z la&vu;er &vu;oz pi&é;z&virgule; &et; les pi&é;z de ces seins
+               ho-</seg>
+            <lb/>
+            <seg facs="#l187">mes qi ceiens sont &à; mes meins. [S]eins</seg>
+            <cb n="5"/>
+            <lb/>
+            <seg facs="#l188">[&JI;]ustins li prestres li respondi &guillemet-ouvrant; [L]e est li
+               cou-</seg>
+            <lb/>
+            <seg facs="#l189">mandemenz nostre signor &punctus-elevatus; feites &vu;ostre</seg>
+            <lb/>
+            <seg facs="#l190">&vu;olent&é;&virgule; el non dame&espace;&Dd;eu
+               &Ji;esu&espace;&Cc;rist&guillemet-fermant; Lors mi-</seg>
+            <lb/>
+            <seg facs="#l191">strent de l&apost;eue en un &vu;aissel&virgule; &et; seinz
+               &Ll;orenz</seg>
+            <lb/>
+            <seg facs="#l192">la&vu;a les pi&é;z de toz les seinz homes qi lai-</seg>
+            <lb/>
+            <seg facs="#l193">enz estoient. [Q]ant il &vu;int &à; seint &Ji;ustin</seg>
+            <lb/>
+            <seg facs="#l194">il&espace;li &com;menca &à; la&vu;er les pi&é;z &et; &à; beisier.
+               Et</seg>
+            <lb/>
+            <seg facs="#l195">qant il ot ce fet &punctus-elevatus; il se &com;manda &à; seint
+               &Ji;ustin</seg>
+            <lb/>
+            <seg facs="#l196">le prestre&virgule; &et; si se de&par;ti de l&à; &à; cele hore.</seg>
+         </p>
+         <p>
+            <lb/>
+            <seg facs="#l197">[[A]]donc &vu;it seinz &Ll;orenz con en me-</seg>
+            <lb/>
+            <seg facs="#l198">noit seint &Ss;&y;xte&virgule; &et; a&vu;euqes les</seg>
+            <lb/>
+            <seg facs="#l199">.II. d&y;acres seint &Ff;elicisme. &et; seint</seg>
+            <lb/>
+            <seg facs="#l200">&Aa;gapite de&vu;ant &Dd;ecie &Cc;esar l&apost;em&per;eor&virgule;
+               &et;</seg>
+            <lb/>
+            <seg facs="#l201">de&vu;ant &Vu;alerien le &pre;&vu;ost. [Q]ant &Dd;ecies</seg>
+            <lb/>
+            <seg facs="#l202">&vu;it seint &Ss;&y;xte&virgule; si li dist &guillemet-ouvrant; [N]os te
+               &con;seillons</seg>
+            <lb/>
+            <seg facs="#l203">por ce qe tu es &vu;ielz hom&virgule; qe tu faces mes</seg>
+            <lb/>
+            <seg facs="#l204">&com;mandemenz&virgule; &et; si sacrefie &à; noz dex&guillemet-fermant;
+               [S]eins</seg>
+            <lb/>
+            <seg facs="#l205">&Ss;&y;xtes respondi &guillemet-ouvrant0; &Cc;hetif mes
+               conseille&sens-incertain; toi-</seg>
+            <lb/>
+            <seg facs="#l206">si ne me blasme mie &et; pren ta peneance</seg>
+            <lb/>
+            <seg facs="#l207">&et; si la fai&virgule; por ce qe tu as tant de sanc de se&in;z</seg>
+            <lb/>
+            <seg facs="#l208">homes espandu sor terre&guillemet-fermant; [D]onc dist &Dd;ecies
+               &Cc;e-</seg>
+            <lb/>
+            <seg facs="#l209">sar qi pleinz estoit de grant forsenerie &à;</seg>
+            <lb/>
+            <seg facs="#l210">&Vu;alerien &guillemet-ouvrant; [S]e cil n&apost;est morz&virgule; la
+               poor de toi n&apost;ert</seg>
+            <lb/>
+            <seg facs="#l211">gra&vu;es cremue&guillemet-fermant; &Vu;aleriens li respondi cou-</seg>
+            <lb/>
+            <seg facs="#l212">mant l&apost;en q&apost;il ait la teste trenchi&é;. Lors res<choice>
+                  <sic/>
+                  <corr>-</corr>
+               </choice></seg>
+            <lb/>
+            <seg facs="#l213">pondirent seinz &Aa;gapites &et; seinz &Ff;elicisme&espace;&com;</seg>
+            <lb/>
+            <seg facs="#l214">qi d&y;acre estoient&virgule; &et; si distrent &guillemet-ouvrant;
+               [C]hetif se</seg>
+            <lb/>
+            <seg facs="#l215">&vu;os o&é;z &et; entend&é;z les &com;mandemenz&virgule; &et; les</seg>
+            <lb/>
+            <seg facs="#l216">amonestemenz de nostre signor &punctus-elevatus; &vu;os por-</seg>
+            <lb/>
+            <seg facs="#l217">ri&é;s eschaper des peines &par;durables qi &vu;oz</seg>
+            <lb/>
+            <seg facs="#l218">tra&vu;eilleront &et; tormenteront&guillemet-fermant; &Vu;aleriens</seg>
+            <lb/>
+            <seg facs="#l219">li pre&vu;oz dist &guillemet-ouvrant; &Pp;or qoi &vu;i&vu;ent cist si
+               longe-</seg>
+            <lb/>
+            <seg facs="#l220">ment qi noz prometent &à;&espace;a&vu;oir si griez</seg>
+            <lb/>
+            <seg facs="#l221">tormenz &punctus-interrogatus; Men&é;z les encore au temple de</seg>
+            <lb/>
+            <seg facs="#l222">noz dex&virgule; &et; si facent sacrefice&virgule; &et; se il ne le
+               &vu;oe-</seg>
+            <lb/>
+            <seg facs="#l223">lent faire&virgule0; si lor trench&é; l&apost;en en meismes leu</seg>
+            <lb/>
+            <seg facs="#l224">les testes&guillemet-fermant; [D]onc furent men&é; li .III. saint</seg>
+            <lb/>
+            <seg facs="#l225">home au temple qi estoit defors les murs</seg>
+            <lb/>
+            <seg facs="#l226">de la porte qi est apelee &Aa;pie&nom-incertain;. Lors comenca</seg>
+            <lb/>
+            <seg facs="#l227">seint &Ss;&y;xtes &à; dire qant il furent &vu;enu al</seg>
+            <lb/>
+            <seg facs="#l228">temple &guillemet-ouvrant; &Vu;e&é;z ici les &y;doles &vu;eines &et;
+               mues</seg>
+            <lb/>
+            <seg facs="#l229">&et; sordes feites de pierre qe li chetif enclin&en;t&virgule;</seg>
+            <lb/>
+            <seg facs="#l230">&et;&espace;a&espace;eurent porce q&apost;il perdent la &vu;ie
+               &par;durable&guillemet-fermant0;</seg>
+            <lb/>
+            <seg facs="#l231">&Ll;ors esgarda il le temple &et; dist &guillemet-ouvrant;
+               [&Ji;]esu&espace;&Cc;riz li</seg>
+            <lb/>
+            <seg facs="#l232">fiuz &Dd;eu te destruise&guillemet-fermant; &Et; tuit cil qi l&à;
+               estoient</seg>
+            <lb/>
+            <seg facs="#l233">crestien respondirent amen&virgule; &et; meinten&an;t</seg>
+            
+            <pb n="4"/>
+            <cb n="6"/>
+            
+            <lb/>
+            <seg facs="#l234">c[h]ai une mout grant partie de[L] temple&virgule;</seg>
+            <lb/>
+            <seg facs="#l235">&et; si combrisa les &y;doles &et; les &y;mages qi de-</seg>
+            <lb/>
+            <seg facs="#l236">denz estoient.</seg>
+            <lb/>
+            <seg facs="#l237">[[Q]]uant seinz &Ll;orenz &vu;it ce qi a&vu;ec</seg>
+            <lb/>
+            <seg facs="#l238">aus estoit &punctus-elevatus; il &com;menca &à; crier &et; &à;</seg>
+            <lb/>
+            <seg facs="#l239">dire &guillemet-ouvrant; Seinz peres ne me deguer-</seg>
+            <lb/>
+            <seg facs="#l240">piz mie. [C]ar &ji;&apost;ai les tresors toz qe tu me les-</seg>
+            <lb/>
+            <seg facs="#l241">sas departiz &et; don&é;z as po&vu;rez&guillemet-fermant; [Q]ant li
+               che-</seg>
+            <lb/>
+            <seg facs="#l242">&vu;alier qi la estoient o&ï;rent qe seinz &Ll;orenz</seg>
+            <lb/>
+            <seg facs="#l243">a&vu;oit tresors il le pristrent. [E]t seint &Ss;&y;xtes</seg>
+            <lb/>
+            <seg facs="#l244">&et; ses .II. compaignons furent iluec de&vu;ant</seg>
+            <lb/>
+            <seg facs="#l245">aus decoler&virgule; &et; ce fu fait as
+               &vu;ictienes&sens-incertain;<!-- probablement "vingtième" --> &y;des</seg>
+            <lb/>
+            <seg facs="#l246">d&apost;aoust&virgule; &et; la remestrent li&espace;cors des seins</seg>
+            <lb/>
+            <seg facs="#l247">mart&y;rs gisant en la place&virgule; tresqa&sens-incertain;
+               <!-- Peut être "tresque" --> la nuit.</seg>
+            <lb/>
+            <seg facs="#l248">qe li prestre &et; li clerc qi d&y;acre estoient. &et;</seg>
+            <lb/>
+            <seg facs="#l249">grans torbes de crestiens pristrent le cors</seg>
+            <lb/>
+            <seg facs="#l250">seint &Ss;&y;xte le beneoit mart&y;r&virgule; si l&apost;enfoirent</seg>
+            <lb/>
+            <seg facs="#l251">el c&y;mentiere seint &Cc;al&y;xte en cele meisme</seg>
+            <lb/>
+            <seg facs="#l252">&vu;oie&virgule; &et; l&à; enfo&ï;rent il en cel meisme &ji;or</seg>
+            <lb/>
+            <seg facs="#l253">seint &Ff;elice&virgule; &et; saint &Aa;gapite qi furent se&in;t</seg>
+            <lb/>
+            <seg facs="#l254">mart&y;r&virgule; &et; si sont en &ji;oie &par;durable o&ù; no-</seg>
+            <lb/>
+            <seg facs="#l255">stre sires &Ji;esu&espace;&Cc;riz nos octroit &par;&vu;enir&point0;
+               Am&en;.</seg>
+         </p>
+      </body>
+   </text>
+</TEI>
