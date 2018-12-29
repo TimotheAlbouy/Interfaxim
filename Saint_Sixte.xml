@@ -11,6 +11,8 @@
 	schematypens="http://purl.oclc.org/dsdl/schematron"
 ?>
 
+<?xml-stylesheet type="text/xsl" href="interfaxim.xsl" ?>
+
 <!DOCTYPE texte [
 <!ENTITY pre "<choice><abbr>p&#772;</abbr><expan>pre</expan></choice>" >
 <!ENTITY pré "<choice><abbr>p&#772;</abbr><expan>pré</expan></choice>" >
