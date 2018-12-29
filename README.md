@@ -5,7 +5,7 @@ There a two ways to use Interfaxim on your own text encoding file:
 
 ### Solution 1: Download Interfaxim locally
 
-Download the Interfaxim XSL file by clicking <a href="https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl" download="interfaxim.sxl">this link</a>, and place it in the same folder than your XML file. Then add this line in this XML file after the `<?xml ... ?>` declaration:
+Download the Interfaxim XSL file by clicking [this link][2], and place it in the same folder than your XML file. Then add this line in this XML file after the `<?xml ... ?>` declaration:
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 
@@ -13,9 +13,12 @@ Download the Interfaxim XSL file by clicking <a href="https://raw.githubusercont
 
 ### Solution 2: Use the Interfaxim file served here on GitHub
 
-Just add this line after the `<?xml ... ?>` declaration in your XML file:
+Just add this tag after the `<?xml ... ?>` declaration in your XML file:
 
-    <?xml-stylesheet type="text/xsl" href="https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl"?>
+    <?xml-stylesheet
+      type="text/xsl"
+      href="https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl"
+    ?>
 
 This method is arguably the best one: you don't have to download anything, there's no cross-browser compatibility problem like in the first method and you always get the latest version of Interfaxim automatically. Of course, it requires an Internet connection for the first time, although this might not be necessary the following times because the XSL file may already be stored in your browser's cache.
 
