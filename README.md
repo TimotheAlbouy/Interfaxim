@@ -16,7 +16,7 @@ This method is arguably the best one: you don't have to download anything, there
 
 ### Solution 2: Download Interfaxim locally
 
-Copy the code of [this link][2] and paste it in a file called `interfaxim.xsl` that you place in the same folder than your XML file. Then, add this line in this XML file after the `<?xml ... ?>` declaration:
+Download an archive by clicking on [this link][2] and extract it to get the Interfaxim XSL file. Place it in the same folder as your XML file, then add this line in this XML file after the `<?xml ... ?>` declaration:
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 
@@ -25,6 +25,6 @@ The only advantage of this method is that it allows you to work offline.
 **WARNING:** Due to [security concerns][3], this method is limited on certain browsers. On Google Chrome for instance, it doesn't work by default but you could still run it if you launch the browser in `--allow-file-access-from-files` mode ([instructions here][4]). Nonetheless, it works well for browsers like Firefox, Safari or Internet Explorer.
 
   [1]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-  [2]: https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl
+  [2]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/interfaxim.zip?raw=true
   [3]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
   [4]: http://www.chrome-allow-file-access-from-file.com/
