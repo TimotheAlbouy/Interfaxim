@@ -3,7 +3,7 @@ This project provides a XSL file (named `interfaxim.xsl`) that transforms a text
 
 There a two ways to use Interfaxim on your own text encoding file:
 
-1. **Download Interfaxim locally**
+### Solution 1: Download Interfaxim locally
 
 Download the Interfaxim XSL file by clicking <a href="https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl" download="interfaxim.sxl">this link</a>, and place it in the same folder than your XML file. Then add this line in this XML file after the `<?xml ... ?>` declaration:
 
@@ -11,7 +11,7 @@ Download the Interfaxim XSL file by clicking <a href="https://raw.githubusercont
 
 **WARNING:** Due to [security concerns][3], this method is limited on certain browsers. On Google Chrome for instance, it doesn't work by default but you could still run it if you launch the browser in `--allow-file-access-from-files` mode ([instructions here][4]). Nonetheless, it works well for browsers like Firefox, Safari or Internet Explorer.
 
-2. **Use the Interfaxim file served here on GitHub**
+### Solution 2: Use the Interfaxim file served here on GitHub
 
 Just add this line after the `<?xml ... ?>` declaration in your XML file:
 
