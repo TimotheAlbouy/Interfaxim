@@ -16,8 +16,13 @@
         <meta charset="UTF-8"/>
         <title>Interfaxim</title>
         <style>
-        body {
+          
+        h1 {
           font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+          
+        body {
+          font-family: Georgia, serif;
         }
 
         .section-wrapper {
@@ -42,38 +47,44 @@
           visibility: visible;
         }
 
-        /* Original version */
+        /* Original version (ov) */
 
         span.choice.orig {
-          color: red;
+          color: crimson;
           display: none;
           padding: 0px 0px 0px 0px;
         }
 
         span.choice.sic {
-          color: red;
+          color: crimson;
           display: none;
           padding: 0px 0px 0px 0px;
         }
 
         span.choice.abbr {
-          color: red;
+          color: crimson;
           padding: 0px 0px 0px 0px;
           display: none;
         }
 
-        /* Regularized version */
+        /* Regularized version (rv) */
 
         span.choice.reg {
-          color: green;
+          color: mediumseagreen;
           padding: 0px 0px 0px 0px;
           display: inline;
         }
 
         span.choice.expan {
-          color: green;
+          color: mediumseagreen;
           padding: 0px 0px 0px 0px;
           display: inline;
+        }
+        
+        span.choice.corr {
+        color: mediumseagreen;
+        padding: 0px 0px 0px 0px;
+        display: inline;
         }
 
         /* Not shown */
@@ -81,6 +92,7 @@
         span.certainty {
           display: none;
         }
+        
         </style>
       </head>
       <body>
@@ -126,7 +138,7 @@
         <script>
         function changeVersion(ver) {
           let ovnodes = document.querySelectorAll(".sic, .orig, .abbr");
-          let rvnodes = document.querySelectorAll(".reg, .expan");
+          let rvnodes = document.querySelectorAll(".reg, .expan, .corr");
           switch (ver) {
             case "ov":
               ovnodes.forEach(el => el.style.display = "inline");
@@ -154,12 +166,9 @@
     </html>
   </xsl:template>
 
+<!-- Original version -->
   <xsl:template match="abbr">
     <span class="choice abbr"><xsl:apply-templates /></span>
-  </xsl:template>
-
-  <xsl:template match="expan">
-    <span class="choice expan"><xsl:apply-templates /></span>
   </xsl:template>
 
   <xsl:template match="orig">
@@ -169,9 +178,18 @@
   <xsl:template match="sic">
     <span class="choice sic"><xsl:apply-templates /></span>
   </xsl:template>
-
+  
+<!-- Regularized version -->
   <xsl:template match="reg">
     <span class="choice reg"><xsl:apply-templates /></span>
+  </xsl:template>
+  
+  <xsl:template match="expan">
+    <span class="choice expan"><xsl:apply-templates /></span>
+  </xsl:template>
+  
+  <xsl:template match="corr">
+    <span class="choice corr"><xsl:apply-templates /></span>
   </xsl:template>
 
   <xsl:template match="certainty">
