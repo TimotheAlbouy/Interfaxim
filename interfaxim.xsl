@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
+<xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  exclude-result-prefixes="xs" version="1.0">
+  exclude-result-prefixes="xs" version="1.0"
+>
   <!-- xmlns:xml="http://www.tei-c.org/ns/1.0" -->
   <xsl:output method="html" 
     encoding="UTF-8" 
     doctype-public="-//W3C//DTD HTML 4.01//EN"
     doctype-system="http://www.w3.org/TR/html4/strict.dtd" 
-    indent="yes"/>
+    indent="yes"
+  />
 
   <xsl:template match="/" name="interfaxim">
     <html>
@@ -44,33 +46,15 @@
 
         /* Original version */
 
-        span.choice.orig {
+        span.choice.orig span.choice.sic span.choice.abbr {
           color: red;
           display: none;
           padding: 0px 0px 0px 0px;
-        }
-
-        span.choice.sic {
-          color: red;
-          display: none;
-          padding: 0px 0px 0px 0px;
-        }
-
-        span.choice.abbr {
-          color: red;
-          padding: 0px 0px 0px 0px;
-          display: none;
         }
 
         /* Regularized version */
 
-        span.choice.reg {
-          color: green;
-          padding: 0px 0px 0px 0px;
-          display: inline;
-        }
-
-        span.choice.expan {
+        span.choice.reg span.choice.expan {
           color: green;
           padding: 0px 0px 0px 0px;
           display: inline;
@@ -86,14 +70,14 @@
       <body>
         <h1 style="text-align: center;">Inter·faxim</h1>
         <div>
-          <label><b>Version : </b></label>
-          <label>régularisée</label>
+          <label><b>Version: </b></label>
+          <label>Regularized</label>
           <input type="radio" name="version" onchange="changeVersion('rv')" checked="checked" />
-          <label>originale</label>
+          <label>Original</label>
           <input type="radio" name="version" onchange="changeVersion('ov')" />
         </div>
         <div>
-          <label><b>Section :</b></label>
+          <label><b>Section:</b></label>
           <div class="tabs">
             <xsl:for-each select="//facsimile/surface">
               <button onclick="{concat('changeSection(', concat(position(), ')'))}">

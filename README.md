@@ -1,11 +1,9 @@
 # Interfaxim
 This project provides a XSL file (named `interfaxim.xsl`) that transforms a text encoding XML file into a HTML interactive facsimile. In order to get the transformation working, the XML file must respect the [TEI guidelines][1].
 
-:warning: Due to [security concerns][2], Interfaxim can't work by default on these browsers:
-- The Chromium family (**Google Chrome**, **Chromium**): you could still run Interfaxim if you launch the browser in `--allow-file-access-from-files` mode ([instructions here][3])
-- (You can notify us of other incompatible browsers in the [Issues][4] section)
+:warning: Due to [security concerns][2], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][3]). You can notify us of other cross-browser compatibility issues in the [Issues][4] section.
 
-Nonetheless, Interfaxim is compatible with browsers like **Firefox**, **Safari**, **Edge**, **Opera** or **Internet Explorer**. Solutions are being considered to resolve the cross-browser compatibility problem.
+Nonetheless, Interfaxim is compatible with browsers like **Firefox**, **Safari**, **Edge** or **Internet Explorer**.
 
 There are two ways to use Interfaxim on your own text encoding file:
 
