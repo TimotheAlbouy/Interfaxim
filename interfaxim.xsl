@@ -2,9 +2,9 @@
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:n="http://www.tei-c.org/ns/1.0"
   exclude-result-prefixes="xs" version="1.0"
 >
-  <!-- xmlns:xml="http://www.tei-c.org/ns/1.0" -->
   <xsl:output method="html" 
     encoding="UTF-8" 
     doctype-public="-//W3C//DTD HTML 4.01//EN"
@@ -13,6 +13,10 @@
   />
 
   <xsl:template match="/" name="interfaxim">
+    <xsl:apply-templates select="//n:TEI" />
+  </xsl:template>
+
+  <xsl:template match="n:TEI">
     <html>
       <head>
         <meta charset="UTF-8"/>
@@ -83,28 +87,28 @@
         <div>
           <label><b>Section:</b></label>
           <div class="tabs">
-            <xsl:for-each select="//facsimile/surface">
-              <button onclick="{concat('changeSection(', concat(position(), ')'))}">
+            <xsl:for-each select="//n:facsimile/n:surface">
+              <button onclick="{concat('changeSection(', position(), ')')}">
                 <xsl:value-of select="position()" />
               </button>
             </xsl:for-each>
           </div>
         </div>
-        <xsl:for-each select="//facsimile/surface">
-          <xsl:variable name="url" select="graphic/@url" />
+        <xsl:for-each select="//n:facsimile/n:surface">
+          <xsl:variable name="url" select="n:graphic/@url" />
           <div class="section-wrapper" data-section="{position()}">
             <img src="{$url}" />
             <div class="zone-list">
-              <xsl:for-each select="zone">
+              <xsl:for-each select="n:zone">
                 <xsl:variable name="left" select="@ulx" />
                 <xsl:variable name="top" select="@uly" />
                 <xsl:variable name="width" select="number(@lrx)-number(@ulx)" />
                 <xsl:variable name="height" select="number(@lry)-number(@uly)" />
                 <xsl:variable name="id" select="@xml:id" />
-                <xsl:variable name="facs" select="concat('#',$id)" />
+                <xsl:variable name="facs" select="concat('#', $id)" />
                 <div class="zone" style="top: {$top}px; left: {$left}px; height: {$height}px; width: {$width}px;">
                   <span style="top: {$height}px;">
-                    <xsl:apply-templates select="//seg[@facs=$facs]" />
+                    <xsl:apply-templates select="//n:seg[@facs=$facs]" />
                   </span>
                 </div>
               </xsl:for-each>
@@ -144,35 +148,35 @@
 
   <!-- Original version -->
 
-  <xsl:template match="abbr">
+  <xsl:template match="n:abbr">
     <span class="choice abbr"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="orig">
+  <xsl:template match="n:orig">
     <span class="choice orig"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="sic">
+  <xsl:template match="n:sic">
     <span class="choice sic"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Regularized version -->
 
-  <xsl:template match="reg">
+  <xsl:template match="n:reg">
     <span class="choice reg"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="expan">
+  <xsl:template match="n:expan">
     <span class="choice expan"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="corr">
+  <xsl:template match="n:corr">
     <span class="choice corr"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Not shown -->
 
-  <xsl:template match="certainty">
+  <xsl:template match="n:certainty">
     <span class="certainty"><xsl:apply-templates /></span>
   </xsl:template>
 </xsl:stylesheet>

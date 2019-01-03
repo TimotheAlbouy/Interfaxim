@@ -19,7 +19,7 @@ This method is arguably the best one: you don't have to download anything and yo
 
 ### Option 2: Download Interfaxim locally
 
-Download an archive by clicking on [this link][5] and extract it to get the Interfaxim XSL file. Place it in the same folder as your XML file, then add this line in this XML file after the `<?xml ... ?>` declaration:
+Download the Interfaxim archive by clicking on [this link][5] and extract it to get the `interfaxim.xsl` file. Place it in the same folder as your XML file, then add this line in this XML file after the `<?xml ... ?>` declaration:
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 

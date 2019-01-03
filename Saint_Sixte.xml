@@ -2,7 +2,7 @@
 
 <?xml-stylesheet
    type="text/xsl"
-   href="https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl"
+   href="interfaxim.xsl"
 ?>
 
 <?xml-model
@@ -91,7 +91,7 @@
 <!ENTITY nom-incertain '<certainty locus="value" resp="#SA" degree="0.5"><desc>La transcription du nom propre précédent est incertaine</desc></certainty>' >
 ]>
 
-<TEI> <!-- xmlns="http://www.tei-c.org/ns/1.0" -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
