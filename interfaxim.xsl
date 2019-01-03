@@ -18,8 +18,12 @@
         <meta charset="UTF-8"/>
         <title>Interfaxim</title>
         <style>
-        body {
+        h1 {
           font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        body {
+          font-family: Georgia, serif;
         }
 
         .section-wrapper {
@@ -44,18 +48,18 @@
           visibility: visible;
         }
 
-        /* Original version */
+        /* Original version (ov) */
 
-        span.choice.orig span.choice.sic span.choice.abbr {
-          color: red;
+        span.choice.orig, span.choice.sic, span.choice.abbr {
+          color: crimson;
           display: none;
           padding: 0px 0px 0px 0px;
         }
 
-        /* Regularized version */
+        /* Regularized version (rv) */
 
-        span.choice.reg span.choice.expan {
-          color: green;
+        span.choice.reg, span.choice.expan, span.choice.corr {
+          color: mediumseagreen;
           padding: 0px 0px 0px 0px;
           display: inline;
         }
@@ -110,7 +114,7 @@
         <script>
         function changeVersion(ver) {
           let ovnodes = document.querySelectorAll(".sic, .orig, .abbr");
-          let rvnodes = document.querySelectorAll(".reg, .expan");
+          let rvnodes = document.querySelectorAll(".reg, .expan, .corr");
           switch (ver) {
             case "ov":
               ovnodes.forEach(el => el.style.display = "inline");
@@ -138,12 +142,10 @@
     </html>
   </xsl:template>
 
+  <!-- Original version -->
+
   <xsl:template match="abbr">
     <span class="choice abbr"><xsl:apply-templates /></span>
-  </xsl:template>
-
-  <xsl:template match="expan">
-    <span class="choice expan"><xsl:apply-templates /></span>
   </xsl:template>
 
   <xsl:template match="orig">
@@ -154,9 +156,21 @@
     <span class="choice sic"><xsl:apply-templates /></span>
   </xsl:template>
 
+  <!-- Regularized version -->
+
   <xsl:template match="reg">
     <span class="choice reg"><xsl:apply-templates /></span>
   </xsl:template>
+
+  <xsl:template match="expan">
+    <span class="choice expan"><xsl:apply-templates /></span>
+  </xsl:template>
+
+  <xsl:template match="corr">
+    <span class="choice corr"><xsl:apply-templates /></span>
+  </xsl:template>
+
+  <!-- Not shown -->
 
   <xsl:template match="certainty">
     <span class="certainty"><xsl:apply-templates /></span>
