@@ -24,6 +24,7 @@
         <style>
         h1 {
           font-family: 'Comic Sans MS', cursive, sans-serif;
+          text-align: center;
         }
 
         body {
@@ -76,7 +77,7 @@
         </style>
       </head>
       <body>
-        <h1 style="text-align: center;">Inter·faxim</h1>
+        <h1>Inter·faxim</h1>
         <div>
           <label><b>Version: </b></label>
           <label>Regularized</label>
