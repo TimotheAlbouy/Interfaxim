@@ -45,23 +45,26 @@ First, download the Interfaxim archive by clicking [here][3] and extract its fil
 
 ## Browser compatibility
 
-This section concerns you only if you choose **Option 2** or **Option 3**, but not if you choose **Option 1**.
+This section concerns you only if you choose **[Option 2][7]** or **[Option 3][8]**, but not if you choose **[Option 1][6]**.
 
-:heavy_check_mark:: **Full support** —— :x:: **Not supported by default** —— :grey_exclamation:: **Working but with display bugs**
+:heavy_check_mark:: **Full support** — :x:: **Not supported by default** — :grey_exclamation:: **Working but with display bugs**
 
 |       Firefox      | Chrome | Opera |  Internet Explorer |         Edge       |        Safari      |
 |:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
 | :heavy_check_mark: |  :x:\* | :x:\* | :grey_exclamation: | :grey_exclamation: | :grey_exclamation: |
 
-\* Due to [security concerns][6], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][7]).
+\* Due to [security concerns][9], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][10]).
 
-You can notify us of other cross-browser compatibility problems in the [Issues][8] section.
+You can notify us of other cross-browser compatibility problems in the [Issues][11] section.
 
   [1]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/README.md
   [2]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
   [3]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/interfaxim.zip?raw=true
   [4]: https://www.oxygenxml.com/
   [5]: #browser-compatibility
-  [6]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
-  [7]: http://www.chrome-allow-file-access-from-file.com/
-  [8]: https://github.com/TimotheAlbouy/Interfaxim/issues
+  [6]: #option-1-use-a-xml-editor-like-oxygen
+  [7]: #option-2-on-web-browser-use-the-interfaxim-file-served-on-github
+  [8]: #option-3-on-web-browser-download-interfaxim-locally
+  [9]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
+  [10]: http://www.chrome-allow-file-access-from-file.com/
+  [11]: https://github.com/TimotheAlbouy/Interfaxim/issues
