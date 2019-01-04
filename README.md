@@ -32,7 +32,9 @@ The only advantage of this method is that it allows you to work offline.
 | :heavy_check_mark: |  :x:\* | :x:\* | :grey_exclamation: | :grey_exclamation: | :grey_exclamation: |
 
 :heavy_check_mark:: Full support
+
 :x:: Not supported by default
+
 :grey_exclamation:: Working but with display bugs
 
 \* Due to [security concerns][2], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][3]).
