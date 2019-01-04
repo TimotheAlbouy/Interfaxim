@@ -149,35 +149,35 @@
 
   <!-- Original version -->
 
-  <xsl:template match="n:abbr">
+  <xsl:template match="abbr | n:abbr">
     <span class="choice abbr"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="n:orig">
+  <xsl:template match="orig | n:orig">
     <span class="choice orig"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="n:sic">
+  <xsl:template match="sic | n:sic">
     <span class="choice sic"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Regularized version -->
 
-  <xsl:template match="n:reg">
+  <xsl:template match="reg | n:reg">
     <span class="choice reg"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="n:expan">
+  <xsl:template match="expan | n:expan">
     <span class="choice expan"><xsl:apply-templates /></span>
   </xsl:template>
 
-  <xsl:template match="n:corr">
+  <xsl:template match="corr | n:corr">
     <span class="choice corr"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Not shown -->
 
-  <xsl:template match="n:certainty">
+  <xsl:template match="certainty | n:certainty">
     <span class="certainty"><xsl:apply-templates /></span>
   </xsl:template>
 </xsl:stylesheet>
