@@ -2,28 +2,44 @@
 
 This project provides a XSL file (named `interfaxim.xsl`) that transforms a text encoding XML file into a HTML interactive facsimile.
 
-In order to get the transformation working, the XML file must respect the [TEI guidelines][1] strictly. Do not forget the namespace: `<TEI xmlns="http://www.tei-c.org/ns/1.0">...</TEI>`.
+*[Lisez en français][1]*
 
-There are two ways to use Interfaxim on your own text encoding file:
+In order to get the transformation working, the XML file must respect the [TEI guidelines][2] strictly. Do not forget the namespace: `<TEI xmlns="http://www.tei-c.org/ns/1.0">...</TEI>`.
 
-### Option 1: Use the Interfaxim file served on GitHub
+There are 3 ways to use Interfaxim on your own text encoding file:
 
-Just add this tag after the `<?xml ... ?>` declaration in your XML file:
+### Option 1: Use a XML editor like Oxygen
+
+First, download the Interfaxim archive by clicking [here][3] and extract its file named `interfaxim.xsl`. Then, use a text editor that possesses a XSLT processor (like [Oxygen][4]) to transform your XML file with `interfaxim.xsl`. It will generate the HTML interactive facsimile of your text encoding file.
+
+**Pros:** You can use almost every web browser available to open the generated HTML file, unlike the 2 other methods that require one of the compatible browsers listed in the **Browser compatibility** section. Besides, you can create interactive facsimiles offline.
+
+**Cons:** You must have on your computer a XML editor equipped with a XSLT processor.
+
+### Option 2: (On web browser) Use the Interfaxim file served on GitHub
+
+Add the following tag after the `<?xml ... ?>` declaration in your XML file:
 
     <?xml-stylesheet
       type="text/xsl"
       href="https://raw.githubusercontent.com/TimotheAlbouy/Interfaxim/master/interfaxim.xsl"
     ?>
 
-This method is arguably the best one: you don't have to download anything and you always get the latest version of Interfaxim automatically. Of course, it requires an Internet connection for the first time, although this might not be necessary the following times because the XSL file may already be stored in your browser's cache.
+Then open the XML file in one of the compatible browsers (listed below) and *voilà*.
 
-### Option 2: Download Interfaxim locally
+**Pros:** You don't have to download anything and you get the latest version of Interfaxim automatically.
 
-Download the Interfaxim archive by clicking on [this link][5] and extract it to get the `interfaxim.xsl` file. Place it in the same folder as your XML file, then add this line in this XML file after the `<?xml ... ?>` declaration:
+**Cons:** You can only use this method on one of the compatible web browsers listed in the **Browser compatibility** section. Also, it requires an Internet connection for the first time, although it might be not necessary the following times because the XSL file may already be stored in your browser's cache.
+
+### Option 3: (On web browser) Download Interfaxim locally
+
+First, download the Interfaxim archive by clicking [here][3] and extract its file named `interfaxim.xsl`. Place it in the same folder as your XML file, then add this line in your XML file after the `<?xml ... ?>` declaration:
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 
-The only advantage of this method is that it allows you to work offline.
+**Pros:** You can create interactive facsimiles offline.
+
+**Cons:** You can only use this method on one of the compatible web browsers listed in the **Browser compatibility** section.
 
 ## Browser compatibility
 
@@ -33,12 +49,14 @@ The only advantage of this method is that it allows you to work offline.
 |:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
 | :heavy_check_mark: |  :x:\* | :x:\* | :grey_exclamation: | :grey_exclamation: | :grey_exclamation: |
 
-\* Due to [security concerns][2], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][3]).
+\* Due to [security concerns][5], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][6]).
 
-You can notify us of other cross-browser compatibility problems in the [Issues][4] section.
+You can notify us of other cross-browser compatibility problems in the [Issues][7] section.
 
-  [1]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-  [2]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
-  [3]: http://www.chrome-allow-file-access-from-file.com/
-  [4]: https://github.com/TimotheAlbouy/Interfaxim/issues
-  [5]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/interfaxim.zip?raw=true
+  [1]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/README.md
+  [2]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+  [3]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/interfaxim.zip?raw=true
+  [4]: https://www.oxygenxml.com/
+  [5]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
+  [6]: http://www.chrome-allow-file-access-from-file.com/
+  [7]: https://github.com/TimotheAlbouy/Interfaxim/issues
