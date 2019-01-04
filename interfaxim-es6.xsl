@@ -118,38 +118,27 @@
         </xsl:for-each>
         <script>
         function changeVersion(ver) {
-          console.log("changeVersion",ver);
           let ovnodes = document.querySelectorAll(".sic, .orig, .abbr");
           let rvnodes = document.querySelectorAll(".reg, .expan, .corr");
-          if (ver === "ov") {
-            for (var i = 0; i &lt; ovnodes.length; i++) {
-              var el = ovnodes[i];
-              el.style.display = "inline";
-            }
-            for (var i = 0; i &lt; rvnodes.length; i++) {
-              var el = rvnodes[i];
-              el.style.display = "none";
-            }
-          } else if (ver === "rv") {
-            for (var i = 0; i &lt; ovnodes.length; i++) {
-              var el = ovnodes[i];
-              el.style.display = "none";
-            }
-            for (var i = 0; i &lt; rvnodes.length; i++) {
-              var el = rvnodes[i];
-              el.style.display = "inline";
-            }
+          switch (ver) {
+            case "ov":
+              ovnodes.forEach(el => el.style.display = "inline");
+              rvnodes.forEach(el => el.style.display = "none");
+              break;
+            case "rv":
+              ovnodes.forEach(el => el.style.display = "none");
+              rvnodes.forEach(el => el.style.display = "inline");
+              break;
           }
         }
 
         function changeSection(sec) {
-          var sections = document.querySelectorAll(".section-wrapper");
-          for (var i = 0; i &lt; sections.length; i++) {
-            var el = sections[i];
+          let sections = document.querySelectorAll(".section-wrapper");
+          sections.forEach(el => {
             if (el.dataset.section == sec)
               el.style.display = "inline-block";
             else el.style.display = "none";
-          }
+          });
         }
 
         changeSection(1);
