@@ -12,7 +12,7 @@ Il y a 3 manières d'utiliser Interfaxim sur votre propre fichier d'encodage de 
 
 ### Option 1 : Utilisez un éditeur XML comme Oxygen
 
-Tout d'abord, téléchargez l'archive Interfaxim en cliquant [ici][3] et extrayez le fichier nommé `interfaxim.xsl`. Ensuite, utilisez un éditeur de texte muni d'un processeur XSLT (comme **[Oxygen][4]**) pour transformer le fichier XML avec `interfaxim.xsl`. Cela génèrera un fichier HTML qui peut être ouvert sur presque n'importe quel navigateur et qui contient le fac-similé interactif du fichier XML.
+Tout d'abord, téléchargez l'archive Interfaxim en cliquant **[ici][3]** et extrayez le fichier nommé `interfaxim.xsl`. Ensuite, utilisez un éditeur de texte muni d'un processeur XSLT (comme **[Oxygen][4]**) pour transformer le fichier XML avec `interfaxim.xsl`. Cela génèrera un fichier HTML qui peut être ouvert sur presque n'importe quel navigateur et qui contient le fac-similé interactif du fichier XML.
 
 **Avantages :** Vous pouvez utiliser presque n'importe quel navigateur web pour ouvrir le fichier HTML généré, contrairement aux 2 autres méthodes qui nécessitent un des navigateurs compatibles donnés dans la section **[Compatibilité des navigateurs][5]**. De plus, vous pouvez créer des fac-similés interactifs sans connexion Internet.
 
@@ -35,7 +35,7 @@ Enfin, ouvrez le fichier XML sur un des navigateurs compatibles ([donnés plus b
 
 ### Option 3 : (Sur navigateur) Téléchargez Interfaxim localement
 
-Tout d'abord, téléchargez l'archive Interfaxim en cliquant [ici][3] et extrayez le fichier nommé `interfaxim.xsl`. Placez-le dans le même répertoire que votre fichier XML, puis ajoutez dans ce dernier la ligne suivante après la déclaration `<?xml ... ?>` :
+Tout d'abord, téléchargez l'archive Interfaxim en cliquant **[ici][3]** et extrayez le fichier nommé `interfaxim.xsl`. Placez-le dans le même répertoire que votre fichier XML, puis ajoutez dans ce dernier la ligne suivante après la déclaration `<?xml ... ?>` :
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 
@@ -61,12 +61,12 @@ Vous pouvez nous prévenir d'autres soucis de compatibilité dans la section [Is
 
   [1]: README.md
   [2]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-  [3]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/interfaxim.zip?raw=true
+  [3]: interfaxim.zip?raw=true
   [4]: https://www.oxygenxml.com/
-  [5]: #browser-compatibility
-  [6]: #option-1-use-a-xml-editor-like-oxygen
-  [7]: #option-2-on-web-browser-use-the-interfaxim-file-served-on-github
-  [8]: #option-3-on-web-browser-download-interfaxim-locally
+  [5]: #compatibilité-des-navigateurs
+  [6]: #option-1--utilisez-un-éditeur-xml-comme-oxygen
+  [7]: #option-2--sur-navigateur-utilisez-le-fichier-interfaxim-de-github
+  [8]: #option-3--sur-navigateur-téléchargez-interfaxim-localement
   [9]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
   [10]: http://www.chrome-allow-file-access-from-file.com/
   [11]: https://github.com/TimotheAlbouy/Interfaxim/issues

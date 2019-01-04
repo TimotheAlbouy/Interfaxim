@@ -12,7 +12,7 @@ There are 3 ways to use Interfaxim on your own text encoding file:
 
 ### Option 1: Use a XML editor like Oxygen
 
-First, download the Interfaxim archive by clicking [here][3] and extract its file named `interfaxim.xsl`. Then, use a text editor that possesses a XSLT processor (like **[Oxygen][4]**) to transform your XML file with `interfaxim.xsl`. It will generate an HTML file that can be opened on almost every browser and that contains the interactive facsimile of your text encoding file.
+First, download the Interfaxim archive by clicking **[here][3]** and extract its file named `interfaxim.xsl`. Then, use a text editor that possesses a XSLT processor (like **[Oxygen][4]**) to transform your XML file with `interfaxim.xsl`. It will generate an HTML file that can be opened on almost every browser and that contains the interactive facsimile of your text encoding file.
 
 **Pros:** You can use almost every web browser available to open up the generated HTML file, unlike the 2 other methods that require one of the compatible browsers listed in the **[Browser compatibility][5]** section. Besides, you can create interactive facsimiles without Internet connection.
 
@@ -35,7 +35,7 @@ Finally, open up the XML file on one of the compatible browsers ([listed below][
 
 ### Option 3: (On web browser) Download Interfaxim locally
 
-First, download the Interfaxim archive by clicking [here][3] and extract its file named `interfaxim.xsl`. Place it in the same folder as your XML file, then add this line in your XML file after the `<?xml ... ?>` declaration:
+First, download the Interfaxim archive by clicking **[here][3]** and extract its file named `interfaxim.xsl`. Place it in the same folder as your XML file, then add this line in your XML file after the `<?xml ... ?>` declaration:
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 
@@ -61,7 +61,7 @@ You can notify us of other cross-browser compatibility problems in the [Issues][
 
   [1]: README.fr.md
   [2]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
-  [3]: https://github.com/TimotheAlbouy/Interfaxim/blob/master/interfaxim.zip?raw=true
+  [3]: interfaxim.zip?raw=true
   [4]: https://www.oxygenxml.com/
   [5]: #browser-compatibility
   [6]: #option-1-use-a-xml-editor-like-oxygen
