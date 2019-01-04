@@ -12,9 +12,9 @@ There are 3 ways to use Interfaxim on your own text encoding file:
 
 ### Option 1: Use a XML editor like Oxygen
 
-First, download the Interfaxim archive by clicking [here][3] and extract its file named `interfaxim.xsl`. Then, use a text editor that possesses a XSLT processor (like [Oxygen][4]) to transform your XML file with `interfaxim.xsl`. It will generate the HTML interactive facsimile of your text encoding file.
+First, download the Interfaxim archive by clicking [here][3] and extract its file named `interfaxim.xsl`. Then, use a text editor that possesses a XSLT processor (like **[Oxygen][4]**) to transform your XML file with `interfaxim.xsl`. It will generate the HTML interactive facsimile of your text encoding file.
 
-**Pros:** You can use almost every web browser available to open the generated HTML file, unlike the 2 other methods that require one of the compatible browsers listed in the **[Browser compatibility][5]** section. Besides, you can create interactive facsimiles offline.
+**Pros:** You can use almost every web browser available to open up the generated HTML file, unlike the 2 other methods that require one of the compatible browsers listed in the **[Browser compatibility][5]** section. Besides, you can create interactive facsimiles without Internet connection.
 
 **Cons:** You must have on your computer a XML editor equipped with a XSLT processor.
 
@@ -39,13 +39,15 @@ First, download the Interfaxim archive by clicking [here][3] and extract its fil
 
     <?xml-stylesheet type="text/xsl" href="interfaxim.xsl"?>
 
-**Pros:** You can create interactive facsimiles offline.
+**Pros:** You can create interactive facsimiles without Internet connection.
 
 **Cons:** You can only use this method on one of the compatible web browsers listed in the **[Browser compatibility][5]** section.
 
 ## Browser compatibility
 
-:heavy_check_mark:: Full support; :x:: Not supported by default; :grey_exclamation:: Working but with display bugs
+This section concerns you only if you choose **Option 2** or **Option 3**, but not if you choose **Option 1**.
+
+:heavy_check_mark:: **Full support** —— :x:: **Not supported by default** —— :grey_exclamation:: **Working but with display bugs**
 
 |       Firefox      | Chrome | Opera |  Internet Explorer |         Edge       |        Safari      |
 |:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
