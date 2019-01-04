@@ -27,15 +27,17 @@ The only advantage of this method is that it allows you to work offline.
 
 ## Browser compatibility
 
-|       Firefox      | Chrome | Opera | Internet Explorer |       Edge      |      Safari     |
-|:------------------:|:------:|:-----:|:-----------------:|:---------------:|:---------------:|
-| :heavy_check_mark: |  :x:\* | :x:\* |      :x:\*\*      | :grey_question: | :grey_question: |
+|       Firefox      | Chrome | Opera |  Internet Explorer |         Edge       |        Safari      |
+|:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
+| :heavy_check_mark: |  :x:\* | :x:\* | :grey_exclamation: | :grey_exclamation: | :grey_exclamation: |
+
+:heavy_check_mark:: Full support
+:x:: Not supported by default
+:grey_exclamation:: Working but with display bugs
 
 \* Due to [security concerns][2], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][3]).
 
-\*\* Interfaxim can't work on **Internet Explorer** because of a lack of XSLT support.
-
-You can notify us of other cross-browser compatibility issues in the [Issues][4] section.
+You can notify us of other cross-browser compatibility problems in the [Issues][4] section.
 
   [1]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
   [2]: https://blog.chromium.org/2008/12/security-in-depth-local-web-pages.html
