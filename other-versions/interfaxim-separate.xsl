@@ -64,11 +64,11 @@
           position: relative;
         }
 
-        div.zone {
+        .zone {
           position: absolute;
         }
 
-        div.zone &gt; span {
+        .zone span {
           position: relative;
           display: block;
           overflow-y: auto;
@@ -83,30 +83,37 @@
         }
 
         /* Original version (ov) */
-        .ov {
+
+        span.choice.orig, span.choice.sic, span.choice.abbr {
           color: crimson;
+          padding: 0px;
+          display: inline;
         }
 
         /* Regularized version (rv) */
-        .rv {
+
+        span.choice.reg, span.choice.expan, span.choice.corr {
           color: mediumseagreen;
+          padding: 0px;
+          display: inline;
         }
 
-        /* Not shown (ns) */
-        .ns {
+        /* Not shown */
+
+        span.certainty {
           display: none;
         }
         </style>
       </head>
       <body>
         <h1><xsl:value-of select="//n:teiHeader/n:fileDesc/n:titleStmt/n:title" /></h1>
-        <div id="tabs-versions" class="tabs">
-          <button id="rvBtn" onclick="changeVersion(event, 'rv')">Regularized version</button>
-          <button id="ovBtn" onclick="changeVersion(event, 'ov')">Original version</button>
+        <div class="tabs">
+          <button onclick="changeVersion('rv')">Regularized version</button>
+          <button onclick="changeVersion('ov')">Original version</button>
         </div>
-        <div id="tabs-sections" class="tabs">
+        <div class="tabs">
           <xsl:for-each select="//n:facsimile/n:surface">
-            <button onclick="{concat('changeSection(event, ', position(), ')')}">
+            <button onclick="{concat('changeSection(', position(), ')')}">
               Page <xsl:value-of select="position()" />
             </button>
           </xsl:for-each>
@@ -133,9 +140,9 @@
           </div>
         </xsl:for-each>
         <script>
-        function changeVersion(e, ver) {
-          var ovnodes = document.getElementsByClassName("ov");
-          var rvnodes = document.getElementsByClassName("rv");
+        function changeVersion(ver) {
+          var ovnodes = document.querySelectorAll(".sic, .orig, .abbr");
+          var rvnodes = document.querySelectorAll(".reg, .expan, .corr");
           if (ver === "ov") {
             for (var i = 0; i &lt; ovnodes.length; i++) {
               var el = ovnodes[i];
@@ -155,32 +162,20 @@
               el.style.display = "inline";
             }
           }
-          var btnVersions = document.querySelectorAll("#tabs-versions button");
-          for (var i = 0; i &lt; btnVersions.length; i++) {
-            var el = btnVersions[i];
-            el.className = el.className.replace(" active", "");
-          }
-          e.currentTarget.className += " active";
         }
 
-        function changeSection(e, sec) {
-          var sections = document.getElementsByClassName("section-wrapper");
+        function changeSection(sec) {
+          var sections = document.querySelectorAll(".section-wrapper");
           for (var i = 0; i &lt; sections.length; i++) {
             var el = sections[i];
             if (el.dataset.section == sec)
               el.style.display = "inline-block";
             else el.style.display = "none";
           }
-          var btnSections = document.querySelectorAll("#tabs-sections button");
-          for (var i = 0; i &lt; btnSections.length; i++) {
-            var el = btnSections[i];
-            el.className = el.className.replace(" active", "");
-          }
-          e.currentTarget.className += " active";
         }
 
-        document.getElementById("rvBtn").click();
-        document.querySelector("#tabs-sections button:first-child").click();
+        changeVersion('rv');
+        changeSection(1);
         </script>
       </body>
     </html>
@@ -188,19 +183,35 @@
 
   <!-- Original version -->
 
-  <xsl:template match="abbr | n:abbr | orig | n:orig | sic | n:sic">
-    <span class="ov"><xsl:apply-templates /></span>
+  <xsl:template match="abbr | n:abbr">
+    <span class="choice abbr"><xsl:apply-templates /></span>
+  </xsl:template>
+
+  <xsl:template match="orig | n:orig">
+    <span class="choice orig"><xsl:apply-templates /></span>
+  </xsl:template>
+
+  <xsl:template match="sic | n:sic">
+    <span class="choice sic"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Regularized version -->
 
-  <xsl:template match="reg | n:reg | expan | n:expan | corr | n:corr">
-    <span class="rv"><xsl:apply-templates /></span>
+  <xsl:template match="reg | n:reg">
+    <span class="choice reg"><xsl:apply-templates /></span>
+  </xsl:template>
+
+  <xsl:template match="expan | n:expan">
+    <span class="choice expan"><xsl:apply-templates /></span>
+  </xsl:template>
+
+  <xsl:template match="corr | n:corr">
+    <span class="choice corr"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Not shown -->
 
   <xsl:template match="certainty | n:certainty">
-    <span class="ns"><xsl:apply-templates /></span>
+    <span class="certainty"><xsl:apply-templates /></span>
   </xsl:template>
 </xsl:stylesheet>
