@@ -53,7 +53,7 @@ Cette section ne vous concerne que si vous choisissez l'**[Option 2][7]** ou l'*
 
 |       Firefox      | Chrome | Opera |  Internet Explorer |         Edge       |        Safari      |
 |:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
-| :heavy_check_mark: |  :x:\* | :x:\* | :grey_exclamation: | :heavy_check_mark: | :grey_exclamation: |
+| :heavy_check_mark: |  :x:\* | :x:\* | :heavy_check_mark: | :heavy_check_mark: | :grey_exclamation: |
 
 \* À cause de [problèmes de sécurité][9], Interfaxim ne marche pas par défaut sur les navigateurs de la famille Chromium (**Google Chrome**, **Chromium**, **Opera**, ...). Cependant, vous pouvez toujours faire fonctionner Interfaxim sur ces navigateurs en les lançant en mode `--allow-file-access-from-files` ([instructions ici][10]).
 
