@@ -19,8 +19,12 @@
   <xsl:template match="n:TEI">
     <html>
       <head>
-        <meta charset="UTF-8"/>
-        <title>Interfaxim</title>
+        <meta charset="UTF-8" />
+        <meta name="title" content="Inter·faxim" />
+        <meta name="author" content="Timothé &amp; Ségolène ALBOUY" />
+        <meta name="description" content="Interactive facsimile" />
+        <meta name="keywords" content="XSLT,XML,TEI" />
+        <title><xsl:value-of select="//n:teiHeader/n:fileDesc/n:titleStmt/n:title" /></title>
         <style>
         h1 {
           font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -77,7 +81,7 @@
         </style>
       </head>
       <body>
-        <h1>Inter·faxim</h1>
+        <h1><xsl:value-of select="//n:teiHeader/n:fileDesc/n:titleStmt/n:title" /></h1>
         <div>
           <label><b>Version: </b></label>
           <label>Regularized</label>
@@ -118,9 +122,8 @@
         </xsl:for-each>
         <script>
         function changeVersion(ver) {
-          console.log("changeVersion",ver);
-          let ovnodes = document.querySelectorAll(".sic, .orig, .abbr");
-          let rvnodes = document.querySelectorAll(".reg, .expan, .corr");
+          var ovnodes = document.querySelectorAll(".sic, .orig, .abbr");
+          var rvnodes = document.querySelectorAll(".reg, .expan, .corr");
           if (ver === "ov") {
             for (var i = 0; i &lt; ovnodes.length; i++) {
               var el = ovnodes[i];

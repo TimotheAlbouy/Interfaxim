@@ -49,11 +49,11 @@ Enfin, ouvrez le fichier XML sur un des navigateurs compatibles ([donnés plus b
 
 Cette section ne vous concerne que si vous choisissez l'**[Option 2][7]** ou l'**[Option 3][8]**, mais pas si vous choississez l'**[Option 1][6]**.
 
-:heavy_check_mark:: **Support complet** — :x:: **Pas supporté par défaut** — :grey_exclamation:: **Fonctionne mais avec des bugs d'affichage**
+:heavy_check_mark:: **Support complet** — :x:: **Pas supporté par défaut**
 
 |       Firefox      | Chrome | Opera |  Internet Explorer |         Edge       |        Safari      |
 |:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
-| :heavy_check_mark: |  :x:\* | :x:\* | :heavy_check_mark: | :heavy_check_mark: | :grey_exclamation: |
+| :heavy_check_mark: |  :x:\* | :x:\* | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 \* À cause de [problèmes de sécurité][9], les navigateurs de la famille Chromium (**Google Chrome**, **Chromium**, **Opera**, ...) bloquent par défaut les transformations XSLT faites en local, ce qui rend Interfaxim inutilisable. Cependant, vous pouvez contourner cette limitation en lançant ces navigateurs en mode `--allow-file-access-from-files` ([instructions ici][10]).
 
