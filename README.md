@@ -4,7 +4,36 @@ Ce projet fournit un fichier XSL (appelé `interfaxim.xsl`) qui transforme un fi
 
 *[Read this in english][1]*
 
-Pour que la transformation fonctionne, le fichier XML doit suivre rigoureusement les [directives TEI][2]. N'oubliez pas l'espace de nom dans le fichier XML : `<TEI xmlns="http://www.tei-c.org/ns/1.0">...</TEI>`.
+Pour que la transformation fonctionne, il est nécéssaire que l’élément racine `TEI` de votre fichier XML comprenne bien un attribut `xmlns` déclarant l’espace de nom comme suit : `<TEI xmlns="http://www.tei-c.org/ns/1.0">...</TEI>`.
+
+La transformation du fichier XSL Interfaxim repose sur une structuration du fichier particulière :
+L’image support du fac-similé doit être subdivisée en zones correspondant à chacun des segments de texte à transcrire. Les coordonnées de ces zones d’images doivent être encodées dans le XML de la manière suivante :
+`<facsimile> 
+      <surface> 
+               <graphic url="___" width="___px" height="___px"/> 
+               <zone xml:id="___" ulx="___" uly="___" lrx="___" lry="___"/>
+      </surface> 
+</facsimile>`
+
+Les attributs de `graphic` doivent être renseignés par des valeurs comme ci-contre :
+- `url` : le chemin du fichier image
+- `width` : la largeur en pixels
+- `height` : la hauteur en pixels
+
+Les attributs de `zone` doivent être renseignés par des valeurs comme ci-contre :
+- `xml:id` : l’identifiant que vous souhaitez associer à la zone
+- `ulx` : la coordonnée d’abscisse pour le point en haut à gauche
+- `uly` : la coordonnée d’ordonnée pour le point en haut à gauche
+- `lrx` : la coordonnée d’abscisse pour le point en bas à droite
+- `lry` : la coordonnée d’abscisse pour le point en bas à droite
+
+Il est possible de générer automatiquement ces données grâce au [TEI zoner][2].
+
+Au sein de la transcription du fac-similé dans le fichier XML, les zones de texte correspondant aux zones d'images préalablement définies dans la balise `facsimile` doivent être encapsulées dans des éléments `seg` avec pour attribut `facs` associé à la valeur d'identifiant définie pour la zone d'image correspondante. Par exemple, s'il existe une zone d'image comme suit :
+`<zone xml:id="seg1" ulx="0" uly="0" lrx="500" lry="300">`
+
+On pourra y associer un élément `seg` contenant la transcription correspondant comme suit :
+`<seg facs="#seg1">TRANSCRIPTION</seg>`
 
 ## Pour commencer
 
@@ -60,7 +89,7 @@ Cette section ne vous concerne que si vous choisissez l'**[Option 2][7]** ou l'*
 Vous pouvez nous prévenir d'autres soucis de compatibilité dans la section [Issues][11].
 
   [1]: README.en.md
-  [2]: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/
+  [2]: http://teicat.huma-num.fr/zoner.php
   [3]: interfaxim.zip?raw=true
   [4]: https://www.oxygenxml.com/
   [5]: #compatibilité-des-navigateurs
