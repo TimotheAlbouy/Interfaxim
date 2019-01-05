@@ -55,7 +55,7 @@ This section concerns you only if you choose **[Option 2][7]** or **[Option 3][8
 |:------------------:|:------:|:-----:|:------------------:|:------------------:|:------------------:|
 | :heavy_check_mark: |  :x:\* | :x:\* | :heavy_check_mark: | :heavy_check_mark: | :grey_exclamation: |
 
-\* Due to [security concerns][9], Interfaxim can't work by default on the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...). You can still run Interfaxim on these browsers if you launch them in `--allow-file-access-from-files` mode ([instructions here][10]).
+\* Due to [security concerns][9], the Chromium family browsers (**Google Chrome**, **Chromium**, **Opera**, ...) don't allow by default local XSLT transformations, thus making Interfaxim ineffective. But you can bypass this limitation by launching these browsers in `--allow-file-access-from-files` mode ([instructions here][10]).
 
 You can notify us of other cross-browser compatibility problems in the [Issues][11] section.
 
