@@ -8,12 +8,12 @@ Pour que la transformation fonctionne, il est nécéssaire que l’élément rac
 
 La transformation du fichier XSL Interfaxim repose sur une structuration du fichier particulière :
 L’image support du fac-similé doit être subdivisée en zones correspondant à chacun des segments de texte à transcrire. Les coordonnées de ces zones d’images doivent être encodées dans le XML de la manière suivante :
-`<facsimile> 
+```<facsimile> 
       <surface> 
                <graphic url="___" width="___px" height="___px"/> 
                <zone xml:id="___" ulx="___" uly="___" lrx="___" lry="___"/>
       </surface> 
-</facsimile>`
+</facsimile>```
 
 Les attributs de `graphic` doivent être renseignés par des valeurs comme ci-contre :
 - `url` : le chemin du fichier image
