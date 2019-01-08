@@ -35,7 +35,9 @@ Au sein de la transcription du fac-similé dans le fichier XML, les zones de tex
 `<zone xml:id="seg1" ulx="0" uly="0" lrx="500" lry="300">`
 
 On pourra y associer un élément `seg` contenant la transcription correspondant comme suit :
-`<seg facs="#seg1">TRANSCRIPTION</seg>`
+```
+<seg facs="#seg1">TRANSCRIPTION</seg>
+```
 
 ## Pour commencer
 
