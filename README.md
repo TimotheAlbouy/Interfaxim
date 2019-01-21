@@ -32,7 +32,9 @@ Les attributs de `zone` doivent être renseignés par des valeurs comme ci-contr
 Il est possible de générer automatiquement ces données grâce au [TEI zoner][2].
 
 Au sein de la transcription du fac-similé dans le fichier XML, les zones de texte correspondant aux zones d'images préalablement définies dans la balise `facsimile` doivent être encapsulées dans des éléments `seg` avec pour attribut `facs` associé à la valeur d'identifiant définie pour la zone d'image correspondante. Par exemple, s'il existe une zone d'image comme suit :
-`<zone xml:id="seg1" ulx="0" uly="0" lrx="500" lry="300">`
+```
+<zone xml:id="seg1" ulx="0" uly="0" lrx="500" lry="300">
+```
 
 On pourra y associer un élément `seg` contenant la transcription correspondant comme suit :
 ```
