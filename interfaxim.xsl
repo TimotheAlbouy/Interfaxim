@@ -2,7 +2,7 @@
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:n="http://www.tei-c.org/ns/1.0"
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
   exclude-result-prefixes="xs" version="1.0"
 >
   <xsl:output method="html" 
@@ -13,10 +13,10 @@
   />
 
   <xsl:template match="/" name="interfaxim">
-    <xsl:apply-templates select="//n:TEI" />
+    <xsl:apply-templates select="//tei:TEI" />
   </xsl:template>
 
-  <xsl:template match="n:TEI">
+  <xsl:template match="tei:TEI">
     <html>
       <head>
         <meta charset="UTF-8" />
@@ -24,7 +24,7 @@
         <meta name="author" content="Timothé &amp; Ségolène ALBOUY" />
         <meta name="description" content="Interactive facsimile" />
         <meta name="keywords" content="XSLT,XML,TEI" />
-        <title><xsl:value-of select="//n:teiHeader/n:fileDesc/n:titleStmt/n:title" /></title>
+        <title><xsl:value-of select="//tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title" /></title>
         <style>
         body {
           font-family: Georgia, serif;
@@ -99,24 +99,24 @@
         </style>
       </head>
       <body>
-        <h1><xsl:value-of select="//n:teiHeader/n:fileDesc/n:titleStmt/n:title" /></h1>
+        <h1><xsl:value-of select="//tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title" /></h1>
         <div id="tabs-versions" class="tabs">
           <button id="rvBtn" onclick="changeVersion(event, 'rv')">Regularized version</button>
           <button id="ovBtn" onclick="changeVersion(event, 'ov')">Original version</button>
         </div>
         <div id="tabs-sections" class="tabs">
-          <xsl:for-each select="//n:facsimile/n:surface">
+          <xsl:for-each select="//tei:facsimile/tei:surface">
             <button onclick="{concat('changeSection(event, ', position(), ')')}">
               Page <xsl:value-of select="position()" />
             </button>
           </xsl:for-each>
         </div>
-        <xsl:for-each select="//n:facsimile/n:surface">
-          <xsl:variable name="url" select="n:graphic/@url" />
+        <xsl:for-each select="//tei:facsimile/tei:surface">
+          <xsl:variable name="url" select="tei:graphic/@url" />
           <div class="section-wrapper" data-section="{position()}">
             <img src="{$url}" />
             <div class="zone-list">
-              <xsl:for-each select="n:zone">
+              <xsl:for-each select="tei:zone">
                 <xsl:variable name="left" select="@ulx" />
                 <xsl:variable name="top" select="@uly" />
                 <xsl:variable name="width" select="number(@lrx)-number(@ulx)" />
@@ -125,7 +125,7 @@
                 <xsl:variable name="facs" select="concat('#', $id)" />
                 <div class="zone" style="top: {$top}px; left: {$left}px; height: {$height}px; width: {$width}px;">
                   <span style="top: {$height}px;">
-                    <xsl:apply-templates select="//n:seg[@facs=$facs]" />
+                    <xsl:apply-templates select="//tei:seg[@facs=$facs]" />
                   </span>
                 </div>
               </xsl:for-each>
@@ -188,19 +188,19 @@
 
   <!-- Original version -->
 
-  <xsl:template match="abbr | n:abbr | orig | n:orig | sic | n:sic">
+  <xsl:template match="abbr | tei:abbr | orig | tei:orig | sic | tei:sic">
     <span class="ov"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Regularized version -->
 
-  <xsl:template match="reg | n:reg | expan | n:expan | corr | n:corr">
+  <xsl:template match="reg | tei:reg | expan | tei:expan | corr | tei:corr">
     <span class="rv"><xsl:apply-templates /></span>
   </xsl:template>
 
   <!-- Not shown -->
 
-  <xsl:template match="certainty | n:certainty">
+  <xsl:template match="certainty | tei:certainty">
     <span class="ns"><xsl:apply-templates /></span>
   </xsl:template>
 </xsl:stylesheet>
