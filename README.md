@@ -2,6 +2,8 @@
 
 Ce projet fournit un fichier XSL (appelé `interfaxim.xsl`) qui transforme un fichier XML d'encodage de texte en fac-similé interactif en HTML.
 
+**Exemple d'utilisation** : [Fac-similé interactif](http://edition-saint-sixte.alwaysdata.net/facsimile-interactif.html)
+
 *[Read this in english][1]*
 
 Pour que la transformation fonctionne, il est nécéssaire que l’élément racine `TEI` de votre fichier XML comprenne bien un attribut `xmlns` déclarant l’espace de nom comme suit : `<TEI xmlns="http://www.tei-c.org/ns/1.0">...</TEI>`.
