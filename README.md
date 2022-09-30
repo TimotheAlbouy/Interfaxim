@@ -2,7 +2,7 @@
 
 Ce projet fournit un fichier XSL (appelé `interfaxim.xsl`) qui transforme un fichier XML d'encodage de texte en fac-similé interactif en HTML.
 
-**Exemple d'utilisation** : [Fac-similé interactif](http://edition-saint-sixte.alwaysdata.net/facsimile-interactif.html)
+**Exemple d'utilisation** : [Fac-similé interactif](https://timothealbouy.github.io/interfaxim/Saint_Sixte.xml)
 
 *[Read this in english][1]*
 
